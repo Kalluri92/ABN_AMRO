@@ -1,0 +1,18 @@
+.row.content {
+    height: 100%
+}
+
+.sidenav {
+    background-color: white;
+    height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content {
+        height: auto;
+    }
+}

@@ -5,7 +5,7 @@ var myConfig = function ($routeProvider) {
             templateUrl: 'app/components/home/home.html',
             controller: 'HomeController'
         })
-        .when('/user', {
+        .when('/users', {
             templateUrl: 'app/components/user/user.html',
             controller: 'UserController'
         });

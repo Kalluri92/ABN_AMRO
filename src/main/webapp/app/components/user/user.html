@@ -1,14 +1,31 @@
-<div>
-    User Page.
-    <br/>
-    Name: {{name}}
-    <br/>
-    <button type="button" class="btn btn-success" ng-click="getAllUsers()">Display All Users</button>
-    <div ng-if="users">
-        <ul>
-            <li ng-repeat="user in users |orderBy: 'userName'">
-                {{user.userName +" | Role:"+user.role}}
-            </li>
-        </ul>
-    </div>
-</div>
+<div class="container-fluid">
+        <div class="row content">
+          <div class="col-sm-2 sidenav">
+            <h4>Accounts</h4>
+            <ul class="nav nav-pills nav-stacked">
+              <li ng-click="viewAll()"><a href="">View All</a></li>
+              <li><a href="">Add</a></li>
+              <li><a href="">Update</a></li>
+              <li><a href="">Delete</a></li>
+            </ul><br>
+          </div>
+      
+          <div class="col-sm-10">
+            <div ng-if="viewAllFlag">
+                <h2>All Users</h2>
+                <hr>
+                
+            </div>
+
+
+
+            <h4><small>RECENT POSTS</small></h4>
+            <hr>
+            <h2>Officially Blogging</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+            <h5><span class="label label-success">Lorem</span></h5><br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <hr>
+          </div>
+        </div>
+      </div>
