@@ -7,7 +7,7 @@
     <div ng-if="users">
         <ul>
             <li ng-repeat="user in users |orderBy: 'firstName'">
-                {{user.name}}
+                {{user.userName +" | Role:"+user.role}}
             </li>
         </ul>
     </div>

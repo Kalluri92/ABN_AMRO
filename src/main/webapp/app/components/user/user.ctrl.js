@@ -14,7 +14,6 @@ var userController = function ($scope, UserFactory) {
                 console.log("UserFactory - > Service Call Failed with error: " + JSON.stringify(error));
             }
         );
-        // $scope.users = UserFactory.getAllUsers();
     };
 };
 

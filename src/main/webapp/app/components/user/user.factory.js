@@ -1,32 +1,18 @@
 'use strict';
 
 // Creating Factory Fuction.
-// var userFactory = function ($scope, $http) {
-//     // getAllUsers = function () {
-//     //     $http
-//     //         .get("http://localhost:8080/user/getAll")
-//     //         .then(
-//     //             function success(response) {
-//     //                 return response.data;
-//     //             },
-//     //             function failure(error) {
-//     //                 console.log("UserFactory - > Service Call Failed with error: " + JSON.stringify(error));
-//     //                 return null;
-//     //             }
-//     //         );
-//     // }
-// };
+var userFactory = function ($http) {
+    return {
+        getAllUsers: function () {
+            return $http.get(appApiConstants.user_get_all);
+        }
+    }
+};
 
 //Adding Dependecy Injuction .
-// userFactory.$inject = ['$scope', '$http'];
+userFactory.$inject = ['$http'];
 
 //Registering factory to module.
 angular
     .module('UserModule')
-    .factory('UserFactory', function ($http) {
-        return {
-            getAllUsers: function () {
-                return $http.get("http://localhost:8080/rest/customer/getAll");
-            }
-        }
-    });
+    .factory('UserFactory', userFactory);

@@ -4,6 +4,9 @@
 .ABN-TC-White {
     color: white;
 }
+.ABN-Center {
+	align-content: center;
+}
 
 body {
     padding-top: 90px;
