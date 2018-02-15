@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-success" ng-click="getAllUsers()">Display All Users</button>
     <div ng-if="users">
         <ul>
-            <li ng-repeat="user in users |orderBy: 'firstName'">
+            <li ng-repeat="user in users |orderBy: 'userName'">
                 {{user.userName +" | Role:"+user.role}}
             </li>
         </ul>

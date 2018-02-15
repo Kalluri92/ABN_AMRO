@@ -14,20 +14,44 @@
 
 <body style="background-color: #54646c">
 	<div class="container">
-		<div class="col-md-4 col-sm-3" ></div>
+		<div class="col-md-4 col-sm-3"></div>
 		<div class="col-md-4 col-sm-6">
 			<div class="jumbotron" style="margin-top: 100px">
-				<center><h3 style="color:#00958F;margin-top: 0px;">ABN AMRO</h3></center>
+				<div class="row">
+				<center>
+					<h3 style="color: #00958F; margin-top: 0px;">ABN AMRO</h3>
+				</center>
 				<form action="/login" method="post">
 					<div class="form-group">
-						<input type="text" name="username" class="form-control" placeholder="username">
+						<input type="text" name="username" class="form-control"
+							placeholder="username">
 					</div>
 					<div class="form-group">
-						<input type="password" name="password" class="form-control" placeholder="password">
+						<input type="password" name="password" class="form-control"
+							placeholder="password">
 					</div>
-					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					<button type="submit" class="btn-primary form-control" style="background-color: #00958F">Sign in</button>
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" />
+					<button type="submit" class="btn-primary form-control"
+						style="background-color: #00958F">Sign in</button>
 				</form>
+				</div>
+				
+				<c:if test="${param.error ne null}">
+				<div class="row" style="margin-top: 10px">
+					<div class="alert alert-danger">
+						Invalid Credentials !
+					</div>
+				</div>
+				</c:if>
+				
+				<c:if test="${param.logout ne null}">
+				<div class="row" style="margin-top: 10px">
+					<div class="alert alert-info">
+						Successfully Signed Out !
+					</div>
+				</div>
+				</c:if>
 			</div>
 		</div>
 		<div class="col-md-4 col-sm-3"></div>
