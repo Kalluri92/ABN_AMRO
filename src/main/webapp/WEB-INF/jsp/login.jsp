@@ -5,6 +5,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("asserts/images/1.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+</style>
 	<!-- All Style sheets are Included at the top -->
 	<link rel="shortcut icon" href="<c:url value=" asserts/images/favicon.ico " />" />
 	<link rel="stylesheet" href="<c:url value=" asserts/css/bootstrap.min.css " />" />
@@ -12,7 +32,8 @@
 	<title>ABN AMRO</title>
 </head>
 
-<body style="background-color: #54646c">
+<!-- <body style="background-color: #54646c"> -->
+<body class="bg">
 	<div class="container">
 		<div class="col-md-4 col-sm-3"></div>
 		<div class="col-md-4 col-sm-6">
@@ -32,7 +53,7 @@
 					</div>
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />
-					<button type="submit" class="btn-primary form-control"
+					<button type="submit" class="btn-primary form-control "
 						style="background-color: #00958F">Sign in</button>
 				</form>
 				</div>
@@ -56,7 +77,6 @@
 		</div>
 		<div class="col-md-4 col-sm-3"></div>
 	</div>
-
 </body>
 <!-- All scripts will be included at the bottom -->
 <script src="<c:url value=" asserts/lib/jquery-3.3.1.js " />"></script>
