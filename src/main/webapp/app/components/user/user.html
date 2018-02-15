@@ -1,31 +1,90 @@
 <div class="container-fluid">
-        <div class="row content">
-          <div class="col-sm-2 sidenav">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
             <h4>Accounts</h4>
             <ul class="nav nav-pills nav-stacked">
-              <li ng-click="viewAll()"><a href="">View All</a></li>
-              <li><a href="">Add</a></li>
-              <li><a href="">Update</a></li>
-              <li><a href="">Delete</a></li>
-            </ul><br>
-          </div>
-      
-          <div class="col-sm-10">
+                <li ng-click="viewAll()">
+                    <a href="">View All</a>
+                </li>
+                <li ng-click="add()">
+                    <a href="">Add</a>
+                </li>
+                <li ng-click="update()">
+                    <a href="">Update</a>
+                </li>
+                <li ng-click="delete()">
+                    <a href="">Delete</a>
+                </li>
+            </ul>
+            <br>
+        </div>
+
+        <div class="col-sm-10">
             <div ng-if="viewAllFlag">
                 <h2>All Users</h2>
                 <hr>
-                
+                <table ng-if="users != null" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>User Name</th>
+                            <th>Role </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in users">
+                            <td>{{user.accountId}}</td>
+                            <td>{{user.userName}}</td>
+                            <td>{{user.role}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div ng-if="users == null" class="alert alert-info">
+                    <strong>Info!</strong> No User records Exist !
+                </div>
             </div>
 
+            <div ng-if="addFlag">
+                <h2>Add User</h2>
+                <hr>
+            </div>
 
+            <div ng-if="deleteFlag">
+                <h2>Delete User</h2>
+                <hr>
+            </div>
 
-            <h4><small>RECENT POSTS</small></h4>
+            <div ng-if="updateFlag">
+                <h2>Update User</h2>
+                <hr>
+            </div>
+
+            <div ng-if="responseObj != null">
+                <div ng-if="responseObj.success == true" class="alert alert-success">
+                    {{responseObj.response}}
+                </div>
+                <div ng-if="responseObj.success == false" class="alert alert-danger">
+                    {{responseObj.response}}
+                </div>
+            </div>
+
+            <h4>
+                <small>RECENT POSTS</small>
+            </h4>
             <hr>
             <h2>Officially Blogging</h2>
-            <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-            <h5><span class="label label-success">Lorem</span></h5><br>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <h5>
+                <span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
+            <h5>
+                <span class="label label-success">Lorem</span>
+            </h5>
+            <br>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+                id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <hr>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
