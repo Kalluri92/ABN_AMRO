@@ -21,3 +21,10 @@ var appApiConstants = {
 	user_update: base_url + "/rest/user/update",
 	user_delete: base_url + "/rest/user/delete"
 };
+
+var htmlContentConstants = {
+	user_no_data_exist: "No User Data Exist !",
+	account_no_data_exist: "No Account Data Exist !",
+	customer_no_data_exist: "No Customer Data Exist !",
+	task_failed_unknow: "Task failed with unknow error,  Please try again !"
+};

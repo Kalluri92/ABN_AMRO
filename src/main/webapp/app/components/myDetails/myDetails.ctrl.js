@@ -12,7 +12,7 @@ var myDetailsController = function ($rootScope, $scope, UserFactory) {
 
     var tempFailureResponse = {
         success: false,
-        response: "Task failed with unknow error,  Please try again !"
+        response: htmlContentConstants.task_failed_unknow
     };
     $scope.view = function () {
         resetAllVews();

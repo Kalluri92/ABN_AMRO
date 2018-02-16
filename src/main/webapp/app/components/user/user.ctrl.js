@@ -2,6 +2,9 @@
 
 // creating Controller Function.
 var userController = function ($scope, UserFactory) {
+    //Mapping constats to a variable to disaply in html.
+    $scope.user_no_data = htmlContentConstants.user_no_data_exist;
+
     //YOUR CODE OF CONTROLLER GOES INSIDE THIS FUNCTION.
     $scope.responseObj = null;
     var resetAllVews = function () {
@@ -13,7 +16,7 @@ var userController = function ($scope, UserFactory) {
     };
     var tempFailureResponse = {
         success: false,
-        response: "Task failed with unknow error,  Please try again !"
+        response: htmlContentConstants.task_failed_unknow
     };
     $scope.viewAll = function () {
         resetAllVews();

@@ -2,6 +2,8 @@
 
 //creating customer controller function.
 var customerController = function ($rootScope, $scope) {
+    //mapping constants.
+    $scope.no_customer_data = htmlContentConstants.customer_no_data_exist;
     //here is the main logic of this controller.
     $scope.responseObj = null;
     var resetAllVews = function () {
