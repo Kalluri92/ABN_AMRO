@@ -26,5 +26,24 @@ var htmlContentConstants = {
 	user_no_data_exist: "No User Data Exist !",
 	account_no_data_exist: "No Account Data Exist !",
 	customer_no_data_exist: "No Customer Data Exist !",
-	task_failed_unknow: "Task failed with unknow error,  Please try again !"
+	task_failed_unknow: "Task failed with unknow error,  Please try again !",
+	unable_to_fetc_server: "Unable to fetech details from server !",
+	no_account_allocated_to_user: "No account was allocated to this user !",
+	account_info_not_found: "Account information not found !",
+	invalid_amount: "Input Value Should be in between numberical 0 and 10000 !"
 };
+
+//Account Pojo Object.
+var Account = function (accountId, balance, accountType, openDate, status, customerId) {
+
+	var obj = {
+		accountId: accountId,
+		balance: balance,
+		accountType: accountType,
+		openDate: openDate,
+		status: status,
+		customerId: customerId
+
+	}
+	return obj;
+}

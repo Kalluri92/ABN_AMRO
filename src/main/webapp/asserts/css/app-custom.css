@@ -20,3 +20,15 @@
 .abn_color {
     color:  #00958F;
 }
+.abn_bg_color {
+    background-color:  #00958F;
+    color: white;
+}
+.list_table {
+    font-size: 18px;
+    color:rgb(66, 83, 121);
+}
+
+.bold {
+    font-weight: 450;
+}

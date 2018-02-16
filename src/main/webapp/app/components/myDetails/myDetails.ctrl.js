@@ -17,6 +17,7 @@ var myDetailsController = function ($rootScope, $scope, UserFactory) {
     $scope.view = function () {
         resetAllVews();
         $scope.viewFlag = true;
+        
     };
 
     $scope.update = function () {

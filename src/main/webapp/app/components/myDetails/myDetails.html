@@ -4,10 +4,10 @@
             <h4 style="color: #00958F">Personal Info</h4>
             <hr>
             <ul class="nav nav-pills nav-stacked">
-                <li ng-click="view()">
+                <li ng-class="{'active':viewFlag}" ng-click="view()">
                     <a href="">View</a>
                 </li>
-                <li ng-click="update()">
+                <li ng-class="{'active':updateFlag}" ng-click="update()">
                     <a href="">Update</a>
                 </li>
             </ul>
