@@ -31,13 +31,13 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav" ng-if="admin">
 							<li>
-								<a href="#">Accounts</a>
+								<a href="#!account">Accounts</a>
 							</li>
 							<li>
-								<a href="#">Customers</a>
+								<a href="#!customer">Customers</a>
 							</li>
 							<li>
-								<a href="#!users">User Mappings</a>
+								<a href="#!user">User Mappings</a>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav" ng-if="!admin">
@@ -106,5 +106,11 @@
 
 <script type="text/javascript" src="app/components/myAccounts/myAccounts.module.js"></script>
 <script type="text/javascript" src="app/components/myAccounts/myAccounts.ctrl.js"></script>
+
+<script type="text/javascript" src="app/components/account/account.module.js"></script>
+<script type="text/javascript" src="app/components/account/account.ctrl.js"></script>
+
+<script type="text/javascript" src="app/components/customer/customer.module.js"></script>
+<script type="text/javascript" src="app/components/customer/customer.ctrl.js"></script>
 
 </html>

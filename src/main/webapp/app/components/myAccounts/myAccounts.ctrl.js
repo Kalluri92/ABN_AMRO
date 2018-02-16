@@ -3,7 +3,27 @@
 //Creating controller Function.
 var myAccountsController = function ($rootScope, $scope) {
     // All Controller Logic goes here.
-    $scope.name = "My Accounts."
+    $scope.responseObj = null;
+    var resetAllVews = function () {
+        $scope.responseObj = null;
+        $scope.viewFlag = false;
+        $scope.updateFlag = false;
+    };
+
+    var tempFailureResponse = {
+        success: false,
+        response: "Task failed with unknow error,  Please try again !"
+    };
+    $scope.view = function () {
+        resetAllVews();
+        $scope.viewFlag = true;  
+    };
+
+    $scope.update = function () {
+        resetAllVews();
+        $scope.updateFlag = true;
+    };
+
 };
 
 //Dependecy injuction.

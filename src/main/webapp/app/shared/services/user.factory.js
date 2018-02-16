@@ -7,7 +7,7 @@ var userFactory = function ($http) {
             return $http.get(appApiConstants.user_get_all);
         },
         get: function (userId) {
-            return $http.get(appApiConstants.user_get + "/"+ userId);
+            return $http.get(appApiConstants.user_get + userId);
         },
         add: function(obj) {
             return  $http.post(appApiConstants.user_add,obj);

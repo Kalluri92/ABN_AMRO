@@ -2,7 +2,8 @@
 
 var myApp = angular.module("MyApp", [
     'ngRoute', 'HomeModule', 'UserModule',
-    'MyAccountsModule', 'MyDetailsModule'    
+    'MyAccountsModule', 'MyDetailsModule',
+    'AccountModule', 'CustomerModule'    
 ]);
 
 //Creating run fucntion for Main module.

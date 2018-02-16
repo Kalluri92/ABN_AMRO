@@ -1,2 +1,37 @@
-My Accounts.
-{{name}}
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <h4 style="color: #00958F">Accounts Info</h4>
+            <hr>
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-click="view()">
+                    <a href="">View</a>
+                </li>
+                <li ng-click="update()">
+                    <a href="">Update</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-10">
+            <div ng-if="viewFlag">
+                <h2 class="abn_color">View Accounts </h2>
+                <hr>
+            </div>
+
+            <div ng-if="updateFlag">
+                <h2 class="abn_color">Update Accounts</h2>
+                <hr>
+            </div>
+
+            <div ng-if="responseObj != null">
+                <div ng-if="responseObj.success == true" class="alert alert-success">
+                    {{responseObj.response}}
+                </div>
+                <div ng-if="responseObj.success == false" class="alert alert-danger">
+                    {{responseObj.response}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,7 +22,7 @@ var customerFactory = function ($http) {
 };
 
 //Adding Dependecy Injuction .
-CustomerFactory.$inject = ['$http'];
+customerFactory.$inject = ['$http'];
 
 //Registering factory to module.
 angular

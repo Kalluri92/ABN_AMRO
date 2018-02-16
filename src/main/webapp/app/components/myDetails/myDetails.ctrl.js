@@ -3,15 +3,27 @@
 //creating Controller Function.
 var myDetailsController = function ($rootScope, $scope, UserFactory) {
     // All Controller Logic goes here.
-    $scope.name = " My Details"
-    UserFactory.get($rootScope.currentUser.userName).then(
-        function success(response) {
-           $scope.myUserDetails = resopnse.data;
-        },
-        function failure(error) {
-            alert(JSON.stringify(error));
-        }
-    );
+    $scope.responseObj = null;
+    var resetAllVews = function () {
+        $scope.responseObj = null;
+        $scope.viewFlag = false;
+        $scope.updateFlag = false;
+    };
+
+    var tempFailureResponse = {
+        success: false,
+        response: "Task failed with unknow error,  Please try again !"
+    };
+    $scope.view = function () {
+        resetAllVews();
+        $scope.viewFlag = true;
+    };
+
+    $scope.update = function () {
+        resetAllVews();
+        $scope.updateFlag = true;
+    };
+
 };
 
 //dependecy injection to controller.

@@ -5,7 +5,15 @@ var myConfig = function ($routeProvider) {
             templateUrl: 'app/components/home/home.html',
             controller: 'HomeController'
         })
-        .when('/users', {
+        .when('/account', {
+            templateUrl: 'app/components/account/account.html',
+            controller: 'AccountController'
+        })
+        .when('/customer', {
+            templateUrl: 'app/components/customer/customer.html',
+            controller: 'CustomerController'
+        })
+        .when('/user', {
             templateUrl: 'app/components/user/user.html',
             controller: 'UserController'
         })
