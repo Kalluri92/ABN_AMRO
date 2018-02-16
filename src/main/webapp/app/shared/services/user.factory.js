@@ -6,9 +6,18 @@ var userFactory = function ($http) {
         getAllUsers: function () {
             return $http.get(appApiConstants.user_get_all);
         },
+        get: function (userId) {
+            return $http.get(appApiConstants.user_get + "/"+ userId);
+        },
         add: function(obj) {
             return  $http.post(appApiConstants.user_add,obj);
         },
+        update: function(obj) {
+            return  $http.post(appApiConstants.user_delete,obj);
+        },
+        delete: function(obj) {
+            return  $http.delete(appApiConstants.user_delete,obj);
+        }
     }
 };
 
@@ -17,5 +26,5 @@ userFactory.$inject = ['$http'];
 
 //Registering factory to module.
 angular
-    .module('UserModule')
+    .module('MyApp')
     .factory('UserFactory', userFactory);

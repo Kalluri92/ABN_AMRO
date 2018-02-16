@@ -91,6 +91,8 @@
 <!-- Application Shared Things-->
 <script type="text/javascript" src="app/shared/services/session.factory.js"></script>
 <script type="text/javascript" src="app/shared/services/user.factory.js"></script>
+<script type="text/javascript" src="app/shared/services/account.factory.js"></script>
+<script type="text/javascript" src="app/shared/services/customer.factory.js"></script>
 
 <!-- Application Modules & Components-->
 <script type="text/javascript" src="app/components/home/home.module.js"></script>
