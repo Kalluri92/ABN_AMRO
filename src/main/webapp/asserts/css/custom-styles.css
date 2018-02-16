@@ -1,6 +1,8 @@
-/* body {
-    padding-top: 90px;
-} */
+body, html {
+	height: 100%;
+	margin: 0;
+}
+
 /* General sizing */
 ul.dropdown-lr {
   width: 300px;

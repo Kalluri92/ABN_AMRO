@@ -6,24 +6,13 @@
 <html>
 <head>
 <style type="text/css">
-body, html {
-    height: 100%;
-    margin: 0;
-}
-
 .bg {
-    /* The image used */
-    background-image: url("asserts/images/1.jpg");
-
-    /* Full height */
-    height: 100%; 
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background-image: url("asserts/images/bg.jpg");
+	height: 100%; 
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-
 </style>
 	<!-- All Style sheets are Included at the top -->
 	<link rel="shortcut icon" href="<c:url value=" asserts/images/favicon.ico " />" />
@@ -39,9 +28,7 @@ body, html {
 		<div class="col-md-4 col-sm-6">
 			<div class="jumbotron" style="margin-top: 100px">
 				<div class="row">
-				<center>
-					<h3 style="color: #00958F; margin-top: 0px;">ABN AMRO</h3>
-				</center>
+					<h3 align="center" style="color: #00958F; margin-top: 0px;">ABN AMRO</h3>
 				<form action="/login" method="post">
 					<div class="form-group">
 						<input type="text" name="username" class="form-control"

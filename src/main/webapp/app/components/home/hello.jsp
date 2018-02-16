@@ -3,6 +3,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<meta name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +32,7 @@
 						<a class="navbar-brand" href="#!home">ABN AMRO</a>
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav" ng-if="admin">
+						<ul class="nav navbar-nav">
 							<li>
 								<a href="#">Accounts</a>
 							</li>
@@ -38,14 +41,6 @@
 							</li>
 							<li>
 								<a href="#!users">User Mappings</a>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav" ng-if="!admin">
-							<li>
-								<a href="#">My Details</a>
-							</li>
-							<li>
-								<a href="#">My Accounts</a>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
@@ -85,8 +80,6 @@
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/app-route.js"></script>
 <script type="text/javascript" src="app/app-constants.js"></script>
-<!-- Application Shared Things-->
-<script type="text/javascript" src="app/shared/session.factory.js"></script>
 <!-- Application Modules & Components-->
 <script type="text/javascript" src="app/components/home/home.module.js"></script>
 <script type="text/javascript" src="app/components/home/home.ctrl.js"></script>

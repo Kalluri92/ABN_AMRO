@@ -7,7 +7,7 @@ var userFactory = function ($http) {
             return $http.get(appApiConstants.user_get_all);
         },
         add: function(obj) {
-            return  $http.post(appApiConstants.user_get_all,obj);
+            return  $http.post(appApiConstants.user_add,obj);
         },
     }
 };

@@ -22,6 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 		http.authorizeRequests()
 				.antMatchers("/app/**").authenticated()
+				.antMatchers("/session/**").authenticated()
 				
 				.antMatchers("/rest/user/add/**").hasAuthority("ADMIN")
 				.antMatchers("/rest/user/delete/**").hasAuthority("ADMIN")
