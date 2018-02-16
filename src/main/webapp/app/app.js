@@ -1,6 +1,9 @@
 'use strict';
 
-var myApp = angular.module("MyApp", ['ngRoute', 'HomeModule', 'UserModule']);
+var myApp = angular.module("MyApp", [
+    'ngRoute', 'HomeModule', 'UserModule',
+    'MyAccountsModule', 'MyDetailsModule'    
+]);
 
 //Creating run fucntion for Main module.
 var runMethod = function ($rootScope, SessionFactory) {
@@ -26,11 +29,13 @@ var appController = function ($rootScope, $scope, $location) {
     $scope.admin = false;
     $rootScope.$on("userSessionSet", function () {
        // alert(JSON.stringify($rootScope.currentUser));
-        if ($rootScope.currentUser.authorities[0] == 'ADMIN') {
+        if ($rootScope.currentUser.authorities[0] === 'ADMIN') {
             $scope.admin = true;
         } else {
             $scope.admin = false;
         }
+        $scope.userName = $rootScope.currentUser.userName;
+        $location.path("/home");
     });
 };
 

@@ -42,13 +42,14 @@
 						</ul>
 						<ul class="nav navbar-nav" ng-if="!admin">
 							<li>
-								<a href="#">My Details</a>
+								<a href="#!myDetails">My Details</a>
 							</li>
 							<li>
-								<a href="#">My Accounts</a>
+								<a href="#!myAccounts">My Accounts</a>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
+							<li><a>Hello <strong>{{userName}}</strong> !</a></li>
 							<li>
 								<form action="/logout" method="post" class="navbar-form navbar-left" role="search">
 									<button type="submit" class="btn btn-link">Sign Out</button>
@@ -81,17 +82,27 @@
 <script type="text/javascript" src="asserts/lib/angular-route.js"></script>
 <!-- Custom library Imports -->
 
+
 <!-- Application Level files -->
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/app-route.js"></script>
 <script type="text/javascript" src="app/app-constants.js"></script>
+
 <!-- Application Shared Things-->
-<script type="text/javascript" src="app/shared/session.factory.js"></script>
+<script type="text/javascript" src="app/shared/services/session.factory.js"></script>
+<script type="text/javascript" src="app/shared/services/user.factory.js"></script>
+
 <!-- Application Modules & Components-->
 <script type="text/javascript" src="app/components/home/home.module.js"></script>
 <script type="text/javascript" src="app/components/home/home.ctrl.js"></script>
+
 <script type="text/javascript" src="app/components/user/user.module.js"></script>
-<script type="text/javascript" src="app/components/user/user.factory.js"></script>
 <script type="text/javascript" src="app/components/user/user.ctrl.js"></script>
+
+<script type="text/javascript" src="app/components/myDetails/myDetails.module.js"></script>
+<script type="text/javascript" src="app/components/myDetails/myDetails.ctrl.js"></script>
+
+<script type="text/javascript" src="app/components/myAccounts/myAccounts.module.js"></script>
+<script type="text/javascript" src="app/components/myAccounts/myAccounts.ctrl.js"></script>
 
 </html>

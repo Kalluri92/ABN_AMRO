@@ -8,6 +8,14 @@ var myConfig = function ($routeProvider) {
         .when('/users', {
             templateUrl: 'app/components/user/user.html',
             controller: 'UserController'
+        })
+        .when('/myAccounts', {
+            templateUrl: 'app/components/myAccounts/myAccounts.html',
+            controller: 'MyAccountsController'
+        })
+        .when('/myDetails', {
+            templateUrl: 'app/components/myDetails/myDetails.html',
+            controller: 'MyDetailsController'
         });
 };
 
