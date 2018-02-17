@@ -30,7 +30,8 @@ var htmlContentConstants = {
 	unable_to_fetc_server: "Unable to fetech details from server !",
 	no_account_allocated_to_user: "No account was allocated to this user !",
 	account_info_not_found: "Account information not found !",
-	invalid_amount: "Input Value Should be in between numberical 0 and 10000 !"
+	invalid_amount: "Input Value Should be in between numberical 0 and 10000 !",
+	customer_info_not_found: "Customer Information Not Found !"
 };
 
 //Account Pojo Object.
@@ -46,4 +47,4 @@ var Account = function (accountId, balance, accountType, openDate, status, custo
 
 	}
 	return obj;
-}
+};

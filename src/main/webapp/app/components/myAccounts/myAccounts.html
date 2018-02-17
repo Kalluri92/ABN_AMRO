@@ -30,7 +30,7 @@
                             </li>
                             <li class="list-group-item row">
                                 <div class="col-sm-3">Balance</div>
-                                <div class="col-sm-9 bold">{{viewData.balance}}</div>
+                                <div class="col-sm-9 info_color bold">{{viewData.balance | currency}}</div>
                             </li>
                             <li class="list-group-item row">
                                 <div class="col-sm-3">Open Date</div>
@@ -38,7 +38,7 @@
                             </li>
                             <li class="list-group-item row">
                                 <div class="col-sm-3">Status</div>
-                                <div class="col-sm-9 bold">{{viewData.status}}</div>
+                                <div class="col-sm-9 bold" ng-class="{success_color:viewData.status=='Active', danger_color:viewData.status!='Active'}">{{viewData.status}}</div>
                             </li>
                             <li class="list-group-item row">
                                 <div class="col-sm-3">Customer Id</div>
@@ -51,6 +51,15 @@
 
             <div ng-if="updateFlag">
                 <h2 class="abn_color">Update Accounts</h2>
+                <hr>
+                <div class="row">
+                        <div class="col-sm-4 col-md-3 list_table">
+                            Existing Balance:
+                        </div>
+                        <div class="col-sm-2 col-md-1 list_table info_color">
+                            {{viewData.balance | currency}}
+                        </div>
+                </div>
                 <hr>
                 <div class="row" style="padding-bottom: 20px">
                     <div class="col-sm-2 col-md-1 list_table" style="padding-top: 8px;">
@@ -67,7 +76,7 @@
                 
             </div>
 
-            <div ng-if="responseObj != null">
+            <div ng-if="responseObj != null" class="col-md-4">
                 <div ng-if="responseObj.success == true" class="alert alert-success">
                     {{responseObj.response}}
                 </div>

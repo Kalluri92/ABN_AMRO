@@ -4,7 +4,9 @@
 var userController = function ($scope, UserFactory) {
     //Mapping constats to a variable to disaply in html.
     $scope.user_no_data = htmlContentConstants.user_no_data_exist;
-
+    $scope.$on('$routeChangeSuccess', function(){
+        $scope.viewAll();
+    });
     //YOUR CODE OF CONTROLLER GOES INSIDE THIS FUNCTION.
     $scope.responseObj = null;
     var resetAllVews = function () {

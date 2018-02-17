@@ -81,7 +81,7 @@
 <script type="text/javascript" src="asserts/lib/angular.js"></script>
 <script type="text/javascript" src="asserts/lib/angular-route.js"></script>
 <!-- Custom library Imports -->
-
+<script type="text/javascript" src="app/custom-lib.js"></script>
 
 <!-- Application Level files -->
 <script type="text/javascript" src="app/app.js"></script>

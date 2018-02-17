@@ -4,16 +4,16 @@
             <h4 style="color: #00958F">Accounts Info</h4>
             <hr>
             <ul class="nav nav-pills nav-stacked">
-                <li ng-click="viewAll()">
+                <li ng-click="viewAll()" ng-class="{'active':viewAllFlag}">
                     <a href="">View All</a>
                 </li>
-                <li ng-click="add()">
+                <li ng-click="add()" ng-class="{'active':addFlag}">
                     <a href="">Add</a>
                 </li>
-                <li ng-click="update()">
+                <li ng-click="update()" ng-class="{'active':updateFlag}">
                     <a href="">Update</a>
                 </li>
-                <li ng-click="delete()">
+                <li ng-click="delete()" ng-class="{'active':deleteFlag}">
                     <a href="">Delete</a>
                 </li>
             </ul>

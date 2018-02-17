@@ -32,3 +32,20 @@
 .bold {
     font-weight: 450;
 }
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border: #d6e9c6;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.success_color {
+    color: #4CD964;
+}
+.info_color {
+    color: #5bc0de;
+}
+.danger_color {
+    color: #d9534f;
+}

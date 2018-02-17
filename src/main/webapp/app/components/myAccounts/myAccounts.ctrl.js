@@ -64,12 +64,16 @@ var myAccountsController = function ($rootScope, $scope, UserFactory, AccountFac
     $scope.updateBalance = function () {
         $scope.responseObj = null;
         if ($scope.inputBalance.value > -1 && $scope.inputBalance.value < 10001 && $scope.inputBalance.value != null) {
-            var tempAccount = $scope.viewData;
+            var tempAccount = {};
+            OBJECT().COPY(tempAccount,$scope.viewData);
             tempAccount.balance = $scope.inputBalance.value;
             AccountFactory.update(tempAccount)
                 .then(
                     function success(response) {
                         $scope.responseObj = response.data;
+                        if(response.data != null && response.data.success) {
+                            $scope.viewData = response.data.optionalValue;
+                        }
                     },
                     function failure(error) {
                         $scope.responseObj = tempFailureResponse;

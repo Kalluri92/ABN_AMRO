@@ -16,6 +16,32 @@
         <div class="col-sm-10">
             <div ng-if="viewFlag">
                 <h2 class="abn_color">View Details </h2>
+                <div ng-if="customerObj">
+                    <div class="col-sm-7">
+                        <ul class="list-group list_table">
+                            <li class="list-group-item row">
+                                <div class="col-sm-3 ">Customer Id</div>
+                                <div class="col-sm-9 bold">{{customerObj.customerId}}</div>
+                            </li>
+                            <li class="list-group-item row">
+                                <div class="col-sm-3">Name</div>
+                                <div class="col-sm-9 bold info_color">{{customerObj.name}}</div>
+                            </li>
+                            <li class="list-group-item row">
+                                <div class="col-sm-3">Phone Number</div>
+                                <div class="col-sm-9 bold">{{customerObj.phoneNumber}}</div>
+                            </li>
+                            <li class="list-group-item row">
+                                <div class="col-sm-3">Email Id</div>
+                                <div class="col-sm-9 bold">{{customerObj.emailId}}</div>
+                            </li>
+                            <li class="list-group-item row">
+                                <div class="col-sm-3">Address</div>
+                                <div class="col-sm-9 bold" >{{customerObj.address}}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <hr>
             </div>
 
