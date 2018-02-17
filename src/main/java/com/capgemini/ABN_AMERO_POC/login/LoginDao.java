@@ -102,7 +102,7 @@ public class LoginDao {
 				temp.remove(login);
 				this.jsonLogin.setLoginsList(temp);
 				updateFile();
-				response = new Response(true, environment.getProperty("Login_LoginSetDeleteSuccess"),login.toString());
+				response = new Response(true, environment.getProperty("Login_LoginSetDeleteSuccess"),login);
 				break;
 			}
 		}
@@ -121,7 +121,7 @@ public class LoginDao {
 				temp.add(loginObj);
 				this.jsonLogin.setLoginsList(temp);
 				updateFile();
-				response = new Response(true, environment.getProperty("Login_LoginUpdateSuccess"),login.toString());
+				response = new Response(true, environment.getProperty("Login_LoginUpdateSuccess"),login);
 				break;
 			}
 		}

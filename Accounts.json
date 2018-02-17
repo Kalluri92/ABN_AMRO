@@ -1,1 +1,1 @@
-{"accountsList":[{"accountId":1002,"balance":10.0,"accountType":"Savings","openDate":"08/02/2018","status":"Active","customerId":9002},{"accountId":1003,"balance":1.0,"accountType":"Savings","openDate":"08/02/2018","status":"Active","customerId":9002}],"accountSequenceNumber":1003}
+{"accountsList":[{"accountId":1002,"balance":10.0,"accountType":"Savings","openDate":"08/02/2018","status":"Active","customerId":9002},{"accountId":1003,"balance":133.0,"accountType":"Savings","openDate":"08/02/2018","status":"Active","customerId":9002}],"accountSequenceNumber":1003}

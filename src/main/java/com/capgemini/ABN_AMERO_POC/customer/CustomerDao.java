@@ -121,7 +121,7 @@ public class CustomerDao {
 				temp.add(customer);
 				this.jsonCustomer.setCustomersList(temp);
 				updateFile();
-				response = new Response(true,environment.getProperty("Customer_CustomerUpdateSuccess"),customer.toString());
+				response = new Response(true,environment.getProperty("Customer_CustomerUpdateSuccess"),customer);
 			}
 		}
 		return response;

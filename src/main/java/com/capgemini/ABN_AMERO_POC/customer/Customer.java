@@ -7,7 +7,7 @@ public class Customer {
 
 	private Integer customerId;
 	private String name;
-	private String addess;
+	private String address;
 	private String emailId;
 	private String phoneNumber;
 
@@ -15,7 +15,7 @@ public class Customer {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((addess == null) ? 0 : addess.hashCode());
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
 		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
 		result = prime * result + ((emailId == null) ? 0 : emailId.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
@@ -32,10 +32,10 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
-		if (addess == null) {
-			if (other.addess != null)
+		if (address == null) {
+			if (other.address != null)
 				return false;
-		} else if (!addess.equals(other.addess))
+		} else if (!address.equals(other.address))
 			return false;
 		if (customerId == null) {
 			if (other.customerId != null)
@@ -67,7 +67,7 @@ public class Customer {
 	public Customer(Integer customerId, String name, String addess, String emailId, String phoneNumber) {
 		this.customerId = customerId;
 		this.name = name;
-		this.addess = addess;
+		this.address = addess;
 		this.emailId = emailId;
 		this.phoneNumber = phoneNumber;
 	}
@@ -88,12 +88,12 @@ public class Customer {
 		this.name = name;
 	}
 
-	public String getAddess() {
-		return addess;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddess(String addess) {
-		this.addess = addess;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getEmailId() {
@@ -114,7 +114,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", addess=" + addess + ", emailId=" + emailId
+		return "Customer [customerId=" + customerId + ", name=" + name + ", addess=" + address + ", emailId=" + emailId
 				+ ", phoneNumber=" + phoneNumber + "]";
 	}
 

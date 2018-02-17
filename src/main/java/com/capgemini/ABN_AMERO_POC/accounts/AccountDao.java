@@ -108,7 +108,7 @@ public class AccountDao {
 				temp.remove(account);
 				this.jsonAccount.setAccountsList(temp);
 				updateFile();
-				response = new Response(true,environment.getProperty("Account_AccountDeleteSuccess"),account.toString());
+				response = new Response(true,environment.getProperty("Account_AccountDeleteSuccess"),account);
 				break;
 			}
 		}
@@ -125,7 +125,7 @@ public class AccountDao {
 				temp.add(account);
 				this.jsonAccount.setAccountsList(temp);
 				updateFile();
-				response = new Response(true,environment.getProperty("Account_AccountUpdateSuccess"),account.toString());
+				response = new Response(true,environment.getProperty("Account_AccountUpdateSuccess"),account);
 				break;
 			}
 		}

@@ -4,13 +4,13 @@ public class Response {
 
 	private boolean success;
 	private String response;
-	private String optionalValue;
+	private Object optionalValue;
 
-	public String getOptionalValue() {
+	public Object getOptionalValue() {
 		return optionalValue;
 	}
 
-	public void setOptionalValue(String optionalValue) {
+	public void setOptionalValue(Object optionalValue) {
 		this.optionalValue = optionalValue;
 	}
 
@@ -34,7 +34,7 @@ public class Response {
 
 	}
 
-	public Response(boolean success, String response, String optionalValue) {
+	public Response(boolean success, String response, Object optionalValue) {
 		this.success = success;
 		this.response = response;
 		this.optionalValue = optionalValue;
