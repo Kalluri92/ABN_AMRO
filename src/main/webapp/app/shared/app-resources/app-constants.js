@@ -19,7 +19,8 @@ var appApiConstants = {
 	user_get: base_url + "/rest/user/get/",
 	user_get_all: base_url + "/rest/user/getAll",
 	user_update: base_url + "/rest/user/update",
-	user_delete: base_url + "/rest/user/delete"
+	user_delete: base_url + "/rest/user/delete",
+	user_change_password: base_url + "/rest/user/changePassword"
 };
 
 var htmlContentConstants = {
@@ -31,20 +32,9 @@ var htmlContentConstants = {
 	no_account_allocated_to_user: "No account was allocated to this user !",
 	account_info_not_found: "Account information not found !",
 	invalid_amount: "Input Value Should be in between numberical 0 and 10000 !",
-	customer_info_not_found: "Customer Information Not Found !"
-};
-
-//Account Pojo Object.
-var Account = function (accountId, balance, accountType, openDate, status, customerId) {
-
-	var obj = {
-		accountId: accountId,
-		balance: balance,
-		accountType: accountType,
-		openDate: openDate,
-		status: status,
-		customerId: customerId
-
-	}
-	return obj;
+	customer_info_not_found: "Customer Information Not Found !",
+	customer_update_failed: "Update Failed , Please try again !",
+	enter_all_fields: "Please fill all (*) mandatory fields !",
+	worng_old_password: "Old Password you have entered is worng !",
+	new_retpe_not_match: "New password and retype did not match !"
 };

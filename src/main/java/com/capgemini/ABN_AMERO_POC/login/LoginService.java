@@ -107,4 +107,13 @@ public class LoginService {
 		}
 		return null;
 	}
+
+	public Response changePassword(Password password) {
+		Login temp = verifyPassword(password.getUserName(), password.getOldPassword());
+		if(temp != null) {
+			temp.setPassword(password.getNewPassword());
+			return loginDao.updateLoginPassword(temp);
+		}
+		return new Response(false,environment.getProperty("Login_userNamePasswordNotMatch"),null);
+	}
 }

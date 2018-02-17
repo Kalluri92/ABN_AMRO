@@ -46,4 +46,9 @@ public class LoginController {
 	public List<Login> getAllLogins() {
 		return loginService.getAllLogins();
 	}
+	
+	@PostMapping("/changePassword")
+	public Response changePassword(@RequestBody Password password) {
+		return loginService.changePassword(password);
+	}
 }

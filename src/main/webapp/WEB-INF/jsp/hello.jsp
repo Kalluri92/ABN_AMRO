@@ -11,7 +11,7 @@
 	<link rel="shortcut icon" href="<c:url value=" asserts/images/favicon.ico " />" />
 	<link rel="stylesheet" href="<c:url value=" asserts/css/bootstrap.min.css " />" />
 	<link rel="stylesheet" href="<c:url value=" asserts/css/app-custom.css " />" />
-	
+
 	<title>ABN AMRO</title>
 </head>
 
@@ -49,7 +49,9 @@
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li><a>Hello <strong>{{userName}}</strong> !</a></li>
+							<li >
+								<a>Hello <strong class="white_color">{{ userName}}</strong> !</a>
+							</li>
 							<li>
 								<form action="/logout" method="post" class="navbar-form navbar-left" role="search">
 									<button type="submit" class="btn btn-link">Sign Out</button>
@@ -80,13 +82,15 @@
 <!-- Angular Related Imports -->
 <script type="text/javascript" src="asserts/lib/angular.js"></script>
 <script type="text/javascript" src="asserts/lib/angular-route.js"></script>
-<!-- Custom library Imports -->
-<script type="text/javascript" src="app/custom-lib.js"></script>
+<!-- Custom Scripts Imports -->
+<script type="text/javascript" src="app/shared/app-resources/app-constants.js"></script>
+<script type="text/javascript" src="app/shared/app-resources/app-pojo.js"></script>
+<script type="text/javascript" src="app/shared/app-resources/custom-lib.js"></script>
+
 
 <!-- Application Level files -->
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/app-route.js"></script>
-<script type="text/javascript" src="app/app-constants.js"></script>
 
 <!-- Application Shared Things-->
 <script type="text/javascript" src="app/shared/services/session.factory.js"></script>

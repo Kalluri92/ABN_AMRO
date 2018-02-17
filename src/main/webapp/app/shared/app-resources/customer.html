@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <h4 class="abn_color">Accounts</h4>
+            <h4 class="abn_color">Customers Info</h4>
             <hr>
             <ul class="nav nav-pills nav-stacked">
                 <li ng-click="viewAll()" ng-class="{'active':viewAllFlag}">
@@ -17,10 +17,9 @@
                     <a href="">Delete</a>
                 </li>
             </ul>
-            <br>
         </div>
 
-        <div class="col-sm-10" style="padding-left: 10px; padding-right: 20px">
+        <div class="col-sm-10">
             <div ng-if="viewAllFlag">
                 <h2 class="abn_color">All Users</h2>
                 <hr>
@@ -41,7 +40,7 @@
                     </tbody>
                 </table>
                 <div ng-if="users == null" class="alert alert-info">
-                    {{user_no_data}}
+                   {{no_customer_data}}
                 </div>
             </div>
 
@@ -60,7 +59,7 @@
                 <hr>
             </div>
 
-            <div ng-if="responseObj != null" style="padding-top: 15px;" class="col-sm-7">
+            <div ng-if="responseObj != null">
                 <div ng-if="responseObj.success == true" class="alert alert-success">
                     {{responseObj.response}}
                 </div>
@@ -70,4 +69,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

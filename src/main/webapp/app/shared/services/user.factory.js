@@ -17,6 +17,9 @@ var userFactory = function ($http) {
         },
         delete: function(obj) {
             return  $http.delete(appApiConstants.user_delete,obj);
+        },
+        changePassword: function(obj) {
+            return  $http.post(appApiConstants.user_change_password,obj);
         }
     }
 };

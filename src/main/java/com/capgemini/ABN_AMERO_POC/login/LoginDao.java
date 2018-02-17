@@ -137,4 +137,22 @@ public class LoginDao {
 		}
 		return null;
 	}
+	
+	public Response updateLoginPassword(Login login) {
+		updateLoginsList();
+		Response response = new Response(false, environment.getProperty("Login_passwordUpdateFailed"), null);
+		for (Login loginObj : this.jsonLogin.getLoginsList()) {
+			if (loginObj.getUserName().equals(login.getUserName())) {
+				List<Login> temp = this.jsonLogin.getLoginsList();
+				temp.remove(loginObj);
+				loginObj.setPassword(login.getPassword());
+				temp.add(loginObj);
+				this.jsonLogin.setLoginsList(temp);
+				updateFile();
+				response = new Response(true, environment.getProperty("Login_passwordUpdateSuccess"),login);
+				break;
+			}
+		}
+		return response;
+	}
 }
