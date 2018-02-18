@@ -32,31 +32,31 @@
                         </div>
                     </div>
                     <div class="" style="margin: 3px;">
+                        <div class="">
                             <div class="">
-                                    <div class="">
-                        <table ng-if="users != null" class="table table-fixed">
-                            <thead>
-                                <tr>
-                                    <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('accountId')">Account Number
-                                        <span class="glyphicon sort-icon" ng-show="sortKey=='accountId'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
-                                    </th>
-                                    <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('userName')">User Name
-                                        <span class="glyphicon sort-icon" ng-show="sortKey=='userName'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
-                                    </th>
-                                    <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('role')">Role
-                                        <span class="glyphicon sort-icon" ng-show="sortKey=='role'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="user in users| orderBy:sortKey:sortOrder | filter:search">
-                                    <td class="col-xs-4 col-sm-4 col-md-4">{{user.accountId}}</td>
-                                    <td class="col-xs-4 col-sm-4 col-md-4">{{user.userName}}</td>
-                                    <td class="col-xs-4 col-sm-4 col-md-4">{{user.role}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </div>
+                                <table ng-if="users != null" class="table table-fixed">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('accountId')">Account Number
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='accountId'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
+                                            </th>
+                                            <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('userName')">User Name
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='userName'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
+                                            </th>
+                                            <th class="col-xs-4 col-sm-4 col-md-4" ng-click="sort('role')">Role
+                                                <span class="glyphicon sort-icon" ng-show="sortKey=='role'" ng-class="{'glyphicon-chevron-down':sortOrder,'glyphicon-chevron-up':!sortOrder}"></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="user in users| orderBy:sortKey:sortOrder | filter:search">
+                                            <td class="col-xs-4 col-sm-4 col-md-4">{{user.accountId}}</td>
+                                            <td class="col-xs-4 col-sm-4 col-md-4">{{user.userName}}</td>
+                                            <td class="col-xs-4 col-sm-4 col-md-4">{{user.role}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,8 +77,56 @@
 
             <div ng-if="updateFlag">
                 <h2 class="abn_color">Update User</h2>
-                <hr>
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text" ng-model="updateUserInput.userName" class="form-control" placeholder="Search by username"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-2" style="margin-top: 10px"> 
+                        <button type="button" ng-click="searchUser()" class="btn btn-info">Search</button>
+                    </div>
+                    
+                </div>
+                <div style="margin: 10px;" ng-if="searchResultUser != null">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group list_table">
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">User Name</div>
+                                    <div class="col-sm-8 col-md-6 bold">{{searchResultUser.userName}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                            <div class="col-sm-4 col-md-4">Role</div>
+                                            <select style="margin-left: 15px; font-size: 16px" class="col-sm-6 col-md-5 info_color" ng-model="updateUserInput.role">
+                                              <option>ADMIN</option>
+                                              <option>USER</option>
+                                            </select>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">Account Id</div>
+                                    <div class="col-sm-8 col-md-6 bold">
+                                        <input type="number" min="" ng-model="updateUserInput.accountId" class="form-control" placeholder="{{searchResultUser.accountId}}">
+                                    </div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">password</div>
+                                    <div class="col-sm-8 col-md-6 bold">
+                                        <input type="text" ng-model="updateUserInput.password" class="form-control" placeholder="{{searchResultUser.password}}">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3"></div>
+                        <button type="button" ng-click="updateUser()" class="btn btn-info">Update</button>
+                    </div>
+                </div>
             </div>
+
 
             <div ng-if="responseObj != null" style="padding-top: 15px;" class="col-sm-7">
                 <div ng-if="responseObj.success == true" class="alert alert-success">

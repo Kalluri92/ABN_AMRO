@@ -4,13 +4,15 @@
 var userController = function ($scope, UserFactory) {
     //Mapping constats to a variable to disaply in html.
     $scope.user_no_data = htmlContentConstants.user_no_data_exist;
-    $scope.$on('$routeChangeSuccess', function(){
+    $scope.$on('$routeChangeSuccess', function () {
         $scope.viewAll();
     });
     //YOUR CODE OF CONTROLLER GOES INSIDE THIS FUNCTION.
     $scope.responseObj = null;
     var resetAllVews = function () {
+        $scope.updateUserInput = {};
         $scope.responseObj = null;
+        $scope.searchResultUser = null;
         $scope.viewAllFlag = false;
         $scope.addFlag = false;
         $scope.updateFlag = false;
@@ -37,7 +39,7 @@ var userController = function ($scope, UserFactory) {
         );
     };
     $scope.sortOrder = true;
-    $scope.sort = function (keyName){
+    $scope.sort = function (keyName) {
         $scope.sortKey = keyName;
         $scope.sortOrder = !$scope.sortOrder;
     }
@@ -69,6 +71,55 @@ var userController = function ($scope, UserFactory) {
     $scope.update = function () {
         resetAllVews();
         $scope.updateFlag = true;
+
+    }
+    $scope.updateUserInput = {};
+    $scope.searchUser = function () {
+        $scope.responseObj = null;
+        UserFactory.get($scope.updateUserInput.userName).then(
+            function success(response) {
+                if (response.data != null && response.data != "") {
+                    $scope.searchResultUser = response.data;
+                    $scope.updateUserInput.role = response.data.role;
+                } else {
+                    $scope.searchResultUser = null;
+                    $scope.responseObj = tempResponse(false, htmlContentConstants.user_not_found);
+                }
+            },
+            function failure(error) {
+                $scope.searchResultUser = null;
+                $scope.responseObj = tempFailureResponse;
+                console.log("User => Search User service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+    }
+    $scope.updateUser = function () {
+        if ($scope.updateUserInput.accountId == null || $scope.updateUserInput.accountId.toString().length < 1) {
+            $scope.updateUserInput.accountId = $scope.searchResultUser.accountId;
+        }
+        if ($scope.updateUserInput.role == null || $scope.updateUserInput.role == "") {
+            $scope.updateUserInput.role = $scope.searchResultUser.role;
+        }
+        if($scope.updateUserInput.password == null || $scope.updateUserInput.password == ""){
+            $scope.updateUserInput.password = " ";
+        }
+        UserFactory.update($scope.updateUserInput).then(
+            function success(response) {
+                if (response.data != null) {
+                    $scope.responseObj = response.data;
+                    if (response.data.success) {
+                        $scope.searchResultUser = response.data.optionalValue;
+                    }
+                } else {
+                    $scope.responseObj = tempResponse(false, htmlContentConstants.user_update_failed_no_response);
+                }
+            },
+            function failure(error) {
+                console.log("User => Update User Details service call failed, Error:" + JSON.stringify(error));
+                $scope.responseObj = tempFailureResponse;
+            }
+        );
+        $scope.updateUserInput = {};
     }
 
     $scope.delete = function () {

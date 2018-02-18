@@ -55,18 +55,12 @@ public class LoginService {
 	}
 
 	public Response updateLogin(Login login) {
-		Response response;
-		if (verifyPassword(login).isSuccess()) {
-			if (login.getAccountId().equals(0)) { // AccountId 0 means user
-													// wants to de link account
-													// with loginSet.
-				login.setAccountId(null);
-			}
-			response = loginDao.updateLogin(login);
-		} else {
-			response = new Response(false, environment.getProperty("Login_AuthenticationFailed"), null);
+		if(login.getAccountId() != null) {
+			if(accountService.getAccount(login.getAccountId()) == null) {
+				return new Response(false, environment.getProperty("Login_updateFailedAccountIdNotExist"), null);
+			} 
 		}
-		return response;
+		return  loginDao.updateLogin(login);
 	}
 
 	public Login getLoginByUserName(String userName) {
@@ -110,10 +104,10 @@ public class LoginService {
 
 	public Response changePassword(Password password) {
 		Login temp = verifyPassword(password.getUserName(), password.getOldPassword());
-		if(temp != null) {
+		if (temp != null) {
 			temp.setPassword(password.getNewPassword());
 			return loginDao.updateLoginPassword(temp);
 		}
-		return new Response(false,environment.getProperty("Login_userNamePasswordNotMatch"),null);
+		return new Response(false, environment.getProperty("Login_userNamePasswordNotMatch"), null);
 	}
 }

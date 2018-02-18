@@ -1,1 +1,1 @@
-{"loginsList":[{"userName":"user","password":"password","accountId":1003,"role":"USER"},{"userName":"Krishna","password":"admin","accountId":1002,"role":"ADMIN"}]}
+{"loginsList":[{"userName":"Krishna","password":"admin","accountId":1002,"role":"ADMIN"},{"userName":"user","password":"password","accountId":1003,"role":"USER"}]}

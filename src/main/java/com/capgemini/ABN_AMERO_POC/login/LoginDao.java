@@ -111,16 +111,19 @@ public class LoginDao {
 
 	public Response updateLogin(Login login) {
 		updateLoginsList();
-		Response response = new Response(false, environment.getProperty("Login_LoginUpdateFailed = Login Set Update Failed !"), null);
+		Response response = new Response(false, environment.getProperty("Login_LoginUpdateFailed"), null);
 		for (Login loginObj : this.jsonLogin.getLoginsList()) {
 			if (loginObj.getUserName().equals(login.getUserName())) {
 				List<Login> temp = this.jsonLogin.getLoginsList();
 				temp.remove(loginObj);
-				loginObj.setPassword(login.getPassword());
+				if(! login.getPassword().trim().equals("")) {
+					loginObj.setPassword(login.getPassword());
+				}
 				loginObj.setAccountId(login.getAccountId());
 				temp.add(loginObj);
 				this.jsonLogin.setLoginsList(temp);
 				updateFile();
+				login.setPassword("XXXXXXXX");
 				response = new Response(true, environment.getProperty("Login_LoginUpdateSuccess"),login);
 				break;
 			}

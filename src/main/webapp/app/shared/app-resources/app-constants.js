@@ -36,5 +36,7 @@ var htmlContentConstants = {
 	customer_update_failed: "Update Failed , Please try again !",
 	enter_all_fields: "Please fill all (*) mandatory fields !",
 	worng_old_password: "Old Password you have entered is worng !",
-	new_retpe_not_match: "New password and retype did not match !"
+	new_retpe_not_match: "New password and retype did not match !",
+	user_not_found: "User not found with given username !",
+	user_update_failed_no_response: "User Update failed with no response from server !"
 };

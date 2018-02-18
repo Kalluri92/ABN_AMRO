@@ -53,7 +53,7 @@
 									<strong class="white_color">{{ userName}}</strong> !</a>
 							</li>
 							<li>
-								<form action="/logout" method="post" class="navbar-form navbar-left" role="search">
+								<form id="signOutForm" action="/logout" method="post" class="navbar-form navbar-left" role="search">
 									<button type="submit" class="btn btn-link">Sign Out</button>
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								</form>
