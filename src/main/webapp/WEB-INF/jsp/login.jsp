@@ -29,36 +29,34 @@
 			<div class="jumbotron" style="margin-top: 100px">
 				<div class="row">
 					<h3 align="center" style="color: #00958F; margin-top: 0px;">ABN AMRO</h3>
-				<form action="/login" method="post">
-					<div class="form-group">
-						<input type="text" name="username" class="form-control"
-							placeholder="username">
-					</div>
-					<div class="form-group">
-						<input type="password" name="password" class="form-control"
-							placeholder="password">
-					</div>
-					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
-					<button type="submit" class="btn-primary form-control "
-						style="background-color: #00958F">Sign in</button>
-				</form>
+					<form action="/login" method="post">
+						<div class="form-group inner-addon left-addon">
+							<i class="glyphicon glyphicon-user"></i>
+							<input type="text" name="username" class="form-control" placeholder="username">
+						</div>
+						<div class="form-group inner-addon left-addon">
+							<i class="glyphicon glyphicon-lock"></i>
+							<input type="password" name="password" class="form-control" placeholder="password">
+						</div>
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<button type="submit" class="btn-primary form-control " style="background-color: #00958F">Sign in</button>
+					</form>
 				</div>
-				
+
 				<c:if test="${param.error ne null}">
-				<div class="row" style="margin-top: 10px">
-					<div class="alert alert-danger">
-						Invalid Credentials !
+					<div class="row" style="margin-top: 10px">
+						<div class="alert alert-danger">
+							Invalid Credentials !
+						</div>
 					</div>
-				</div>
 				</c:if>
-				
+
 				<c:if test="${param.logout ne null}">
-				<div class="row" style="margin-top: 10px">
-					<div class="alert alert-info">
-						Successfully Signed Out !
+					<div class="row" style="margin-top: 10px">
+						<div class="alert alert-info">
+							Successfully Signed Out !
+						</div>
 					</div>
-				</div>
 				</c:if>
 			</div>
 		</div>

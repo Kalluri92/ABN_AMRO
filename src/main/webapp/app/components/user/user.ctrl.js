@@ -35,6 +35,11 @@ var userController = function ($scope, UserFactory) {
                 console.log("UserFactory - > GetAll Service Call Failed with error: " + JSON.stringify(error));
             }
         );
+    };
+    $scope.sortOrder = true;
+    $scope.sort = function (keyName){
+        $scope.sortKey = keyName;
+        $scope.sortOrder = !$scope.sortOrder;
     }
 
     $scope.add = function () {

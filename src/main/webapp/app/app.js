@@ -1,18 +1,19 @@
 'use strict';
 
 var myApp = angular.module("MyApp", [
-    'ngRoute', 'HomeModule', 'UserModule',
+    'ngRoute', // Angular Related Imports.
+    'HomeModule', 'UserModule', // Application Related Modules.
     'MyAccountsModule', 'MyDetailsModule',
-    'AccountModule', 'CustomerModule'    
+    'AccountModule', 'CustomerModule'
 ]);
 
 //Creating run fucntion for Main module.
 var runMethod = function ($rootScope, SessionFactory) {
     SessionFactory.getCurrentUser()
         .then(function success(response) {
-                $rootScope.currentUser = response.data;
-                $rootScope.$broadcast("userSessionSet");
-            },
+            $rootScope.currentUser = response.data;
+            $rootScope.$broadcast("userSessionSet");
+        },
             function failure(error) {
                 console.log("Getting Current User Data Failed ,error:" + JSON.stringify(error));
             }
@@ -29,7 +30,7 @@ var appController = function ($rootScope, $scope, $location) {
     //YOUR CODE OF CONTROLLER GOES INSIDE THIS FUNCTION.
     $scope.admin = false;
     $rootScope.$on("userSessionSet", function () {
-       // alert(JSON.stringify($rootScope.currentUser));
+        // alert(JSON.stringify($rootScope.currentUser));
         if ($rootScope.currentUser.authorities[0] === 'ADMIN') {
             $scope.admin = true;
         } else {

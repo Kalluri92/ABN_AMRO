@@ -5,7 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-
 <head>
 	<!-- All Style Sheets are Loaded at top -->
 	<link rel="shortcut icon" href="<c:url value=" asserts/images/favicon.ico " />" />
@@ -49,8 +48,9 @@
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li >
-								<a>Hello <strong class="white_color">{{ userName}}</strong> !</a>
+							<li>
+								<a>Hello
+									<strong class="white_color">{{ userName}}</strong> !</a>
 							</li>
 							<li>
 								<form action="/logout" method="post" class="navbar-form navbar-left" role="search">
@@ -76,17 +76,21 @@
 </body>
 <!-- All Script Files will be loaded at the End.-->
 
-<!-- Jquery & BootStrap Imports -->
+<!-- Jquery , BootStrap  Imports -->
 <script type="text/javascript" src="asserts/lib/jquery-3.3.1.js"></script>
 <script type="text/javascript" src="asserts/lib/bootstrap.min.js"></script>
+
 <!-- Angular Related Imports -->
 <script type="text/javascript" src="asserts/lib/angular.js"></script>
 <script type="text/javascript" src="asserts/lib/angular-route.js"></script>
+
+<!-- Thrid party Libs -->
+
+
 <!-- Custom Scripts Imports -->
 <script type="text/javascript" src="app/shared/app-resources/app-constants.js"></script>
 <script type="text/javascript" src="app/shared/app-resources/app-pojo.js"></script>
 <script type="text/javascript" src="app/shared/app-resources/custom-lib.js"></script>
-
 
 <!-- Application Level files -->
 <script type="text/javascript" src="app/app.js"></script>

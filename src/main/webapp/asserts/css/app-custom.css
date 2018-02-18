@@ -52,3 +52,49 @@
 .white_color {
     color:rgb(255, 255, 255);
 }
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.sort-icon {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+th {
+    cursor:ns-resize;
+}
+.table-fixed thead {
+    display: inline-block;
+    width: 100%;
+    background-color:rgb(165, 170, 175);
+  }
+  .table-fixed tbody {
+    max-height: 230px;
+    overflow-y: auto;
+    width: 100%;
+  }
+   .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+    display: block;
+  }
+  .table-fixed tbody td, .table-fixed thead > tr> th {
+    float: left;
+    border-bottom-width: 0px;
+  }
