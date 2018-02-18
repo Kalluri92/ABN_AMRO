@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -37,6 +38,7 @@ public class LoginDao {
 			File file = new File(environment.getProperty("Login_JsonFileName"));
 			if (!file.exists()) {
 				file.createNewFile();
+				this.jsonLogin.setLoginsList(Arrays.asList(new Login("admin", "admin", null, "ADMIN")));
 				updateFile();
 			} else {
 				updateLoginsList();
