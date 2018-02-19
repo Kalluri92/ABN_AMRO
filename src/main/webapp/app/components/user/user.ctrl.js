@@ -50,26 +50,38 @@ var userController = function ($scope, UserFactory) {
     //All Add Related Starts Here.
     $scope.add = function () {
         resetAllVews();
+        $scope.addUserInput = {};
+        $scope.addUserInput.role = "USER";
         $scope.addFlag = true;
-        var addUserObj = {
-            userName: "Venkat",
-            password: "1234",
-            accountId: "9002",
-            role: "USER"
-        };
-        UserFactory.add(addUserObj).then(
-            function success(response) {
-                if (response.data != null) {
-                    $scope.responseObj = response.data;
+    };
+    $scope.addUser = function () {
+        if ($scope.addUserInput.userName != null && $scope.addUserInput.userName != "") {
+            if ($scope.addUserInput.accountId != null && $scope.addUserInput.accountId.toString().length > 3) {
+                if ($scope.addUserInput.password != null && $scope.addUserInput.password != "") {
+                    UserFactory.add($scope.addUserInput).then(
+                        function success(response) {
+                            if (response.data != null) {
+                                $scope.responseObj = response.data;
+                                $scope.addUserInput = {};
+                                $scope.addUserInput.role = "USER";
+                            } else {
+                                $scope.responseObj = tempFailureResponse;
+                            }
+                        },
+                        function failure(error) {
+                            $scope.responseObj = tempFailureResponse;
+                            console.log("UserFactory - > Add Service Call Failed with error: " + JSON.stringify(error));
+                        }
+                    );
                 } else {
-                    $scope.responseObj = tempFailureResponse;
+                    $scope.responseObj = tempResponse(false,htmlContentConstants.user_add_enter_valid_password);
                 }
-            },
-            function failure(error) {
-                $scope.responseObj = tempFailureResponse;
-                console.log("UserFactory - > Add Service Call Failed with error: " + JSON.stringify(error));
+            } else {
+                $scope.responseObj = tempResponse(false,htmlContentConstants.user_add_enter_valid_accountId);
             }
-        );
+        } else {
+            $scope.responseObj = tempResponse(false,htmlContentConstants.user_add_enter_valid_userName);
+        }
     };
     //All Add Related Ends Here.
 
@@ -77,8 +89,7 @@ var userController = function ($scope, UserFactory) {
     $scope.update = function () {
         resetAllVews();
         $scope.updateFlag = true;
-
-    }
+    };
     $scope.updateUserInput = {};
     $scope.searchUser = function () {
         $scope.responseObj = null;
@@ -106,7 +117,7 @@ var userController = function ($scope, UserFactory) {
         if ($scope.updateUserInput.role == null || $scope.updateUserInput.role == "") {
             $scope.updateUserInput.role = $scope.searchResultUser.role;
         }
-        if($scope.updateUserInput.password == null || $scope.updateUserInput.password == ""){
+        if ($scope.updateUserInput.password == null || $scope.updateUserInput.password == "") {
             $scope.updateUserInput.password = " ";
         }
         UserFactory.update($scope.updateUserInput).then(

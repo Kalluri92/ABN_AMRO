@@ -38,5 +38,16 @@ var htmlContentConstants = {
 	worng_old_password: "Old Password you have entered is worng !",
 	new_retpe_not_match: "New password and retype did not match !",
 	user_not_found: "User not found with given username !",
-	user_update_failed_no_response: "User Update failed with no response from server !"
+	user_update_failed_no_response: "User Update failed with no response from server !",
+	user_add_enter_valid_userName: "Please enter valid Username !",
+	user_add_enter_valid_accountId: "Please enter valid Account Number !",
+	user_add_enter_valid_password: "Please enter valid Password !",
+	account_balance_not_valid:" Enter valid opening balance amount (>=0) !",
+	account_enter_valid_customer_id: "Enter valid Customer Id !",
+	customer_enter_all_filed_valid_data: "Please enter all fields with valid data !",
+	customer_not_fond: "Customer Not found with given Id !",
+	customer_update_failed: "Customer Update failed with no response !",
+	account_not_found: "Account Not found with given id !",
+	account_update_failed: "Account update failed with no response !"
+	
 };

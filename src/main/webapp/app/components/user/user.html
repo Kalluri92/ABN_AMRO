@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <h4 class="abn_color">Accounts</h4>
+            <h4 class="abn_color">Users Mapping</h4>
             <hr>
             <ul class="nav nav-pills nav-stacked">
                 <li ng-click="viewAll()" ng-class="{'active':viewAllFlag}">
@@ -60,14 +60,52 @@
                         </div>
                     </div>
                 </div>
-                <div ng-if="users == null" class="alert alert-info">
-                    {{user_no_data}}
-                </div>
             </div>
 
             <div ng-if="addFlag">
                 <h2 class="abn_color">Add User</h2>
                 <hr>
+                <div style="margin: 10px;">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul class="list-group list_table">
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">User Name</div>
+                                    <div class="col-sm-8 col-md-6 bold">
+                                        <input type="text" ng-model="addUserInput.userName" class="form-control" placeholder="Enter Username">
+                                    </div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">Role</div>
+                                    <div class="col-sm-6 col-md-5">
+                                        <select class=" form-control info_color" ng-model="addUserInput.role">
+                                            <option>ADMIN</option>
+                                            <option>USER</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">Account Id</div>
+                                    <div class="col-sm-8 col-md-6 bold">
+                                        <input type="number" min="" ng-model="addUserInput.accountId" class="form-control" placeholder="Enter Account Number">
+                                    </div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-4 col-md-4">password</div>
+                                    <div class="col-sm-8 col-md-6 bold">
+                                        <input type="text" ng-model="addUserInput.password" class="form-control" placeholder="Enter Password">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3"></div>
+                        <button type="button" ng-click="addUser()" class="btn btn-info">Add</button>
+                    </div>
+                </div>
+
             </div>
 
             <div ng-if="updateFlag">
@@ -76,10 +114,10 @@
                     <div class="col-sm-4 col-md-3">
                         <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
                             <i class="glyphicon glyphicon-search"></i>
-                            <input type="text" ng-model="updateUserInput.userName" class="form-control" placeholder="Search by username"/>
+                            <input type="text" ng-model="updateUserInput.userName" class="form-control" placeholder="Search by username" />
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-2" style="margin-top: 10px"> 
+                    <div class="col-sm-3 col-md-2" style="margin-top: 10px">
                         <button type="button" ng-click="searchUser()" class="btn btn-info">Search</button>
                     </div>
                 </div>
@@ -92,11 +130,11 @@
                                     <div class="col-sm-8 col-md-6 bold">{{searchResultUser.userName}}</div>
                                 </li>
                                 <li class="list-group-item row">
-                                            <div class="col-sm-4 col-md-4">Role</div>
-                                            <select style="margin-left: 15px; font-size: 16px" class="col-sm-6 col-md-5 info_color" ng-model="updateUserInput.role">
-                                              <option>ADMIN</option>
-                                              <option>USER</option>
-                                            </select>
+                                    <div class="col-sm-4 col-md-4">Role</div>
+                                    <select style="margin-left: 15px; font-size: 16px" class="col-sm-6 col-md-5 info_color" ng-model="updateUserInput.role">
+                                        <option>ADMIN</option>
+                                        <option>USER</option>
+                                    </select>
                                 </li>
                                 <li class="list-group-item row">
                                     <div class="col-sm-4 col-md-4">Account Id</div>
@@ -128,10 +166,10 @@
                     <div class="col-sm-4 col-md-3">
                         <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
                             <i class="glyphicon glyphicon-search"></i>
-                            <input type="text" ng-model="deleteUserInput.userName" class="form-control" placeholder="Search by username"/>
+                            <input type="text" ng-model="deleteUserInput.userName" class="form-control" placeholder="Search by username" />
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-2" style="margin-top: 10px"> 
+                    <div class="col-sm-3 col-md-2" style="margin-top: 10px">
                         <button type="button" ng-click="searchDeleteUser()" class="btn btn-info">Search</button>
                     </div>
                 </div>
