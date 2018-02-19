@@ -39,28 +39,25 @@ public class LoginService {
 
 	public Response deleteLogin(Login login) {
 		Response response;
-		if (verifyPassword(login).isSuccess()) {
-			Login temp = loginDao.getLoginByUserName(login.getUserName());
-			if (temp.getAccountId() != null) {
-				response = new Response(false, environment.getProperty("Login_DeleteNotPossibleWhenAccountIsInMapped"),
-						null);
-			} else {
-				response = loginDao.deleteLogin(login.getUserName());
-			}
 
+		Login temp = loginDao.getLoginByUserName(login.getUserName());
+		if (temp.getAccountId() != null) {
+			response = new Response(false, environment.getProperty("Login_DeleteNotPossibleWhenAccountIsInMapped"),
+					null);
 		} else {
-			response = new Response(false, environment.getProperty("Login_AuthenticationFailed"), null);
+			response = loginDao.deleteLogin(login.getUserName());
 		}
+
 		return response;
 	}
 
 	public Response updateLogin(Login login) {
-		if(login.getAccountId() != null) {
-			if(accountService.getAccount(login.getAccountId()) == null) {
+		if (login.getAccountId() != null) {
+			if (accountService.getAccount(login.getAccountId()) == null) {
 				return new Response(false, environment.getProperty("Login_updateFailedAccountIdNotExist"), null);
-			} 
+			}
 		}
-		return  loginDao.updateLogin(login);
+		return loginDao.updateLogin(login);
 	}
 
 	public Login getLoginByUserName(String userName) {

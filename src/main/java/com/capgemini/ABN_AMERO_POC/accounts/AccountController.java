@@ -6,7 +6,6 @@ package com.capgemini.ABN_AMERO_POC.accounts;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +42,7 @@ public class AccountController {
 		return accountService.getAccount(id);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@PostMapping("/delete/{id}")
 	public Response deleteAccount(@PathVariable("id") Integer id){
 		return accountService.deleteAccount(id);
 	}

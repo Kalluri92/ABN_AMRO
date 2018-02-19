@@ -22,6 +22,8 @@ var userController = function ($scope, UserFactory) {
         success: false,
         response: htmlContentConstants.task_failed_unknow
     };
+
+    //all View Related Functionality Starts here.
     $scope.viewAll = function () {
         resetAllVews();
         $scope.viewAllFlag = true;
@@ -43,7 +45,9 @@ var userController = function ($scope, UserFactory) {
         $scope.sortKey = keyName;
         $scope.sortOrder = !$scope.sortOrder;
     }
+    //all View Related Functionality Ends here.
 
+    //All Add Related Starts Here.
     $scope.add = function () {
         resetAllVews();
         $scope.addFlag = true;
@@ -66,8 +70,10 @@ var userController = function ($scope, UserFactory) {
                 console.log("UserFactory - > Add Service Call Failed with error: " + JSON.stringify(error));
             }
         );
-    }
+    };
+    //All Add Related Ends Here.
 
+    //All Update Starts here.
     $scope.update = function () {
         resetAllVews();
         $scope.updateFlag = true;
@@ -120,12 +126,53 @@ var userController = function ($scope, UserFactory) {
             }
         );
         $scope.updateUserInput = {};
-    }
+    };
+    // All Update Related Ends here.!!
 
+
+    // All Delete Related Starts here !
     $scope.delete = function () {
         resetAllVews();
         $scope.deleteFlag = true;
-    }
+        $scope.deleteUserInput = {};
+        $scope.searchDeleteResultUser = null;
+    };
+    $scope.deleteUserInput = {};
+    $scope.searchDeleteResultUser = null;
+    $scope.searchDeleteUser = function () {
+        $scope.responseObj = null;
+        UserFactory.get($scope.deleteUserInput.userName).then(
+            function success(response) {
+                if (response.data != null && response.data != "") {
+                    $scope.searchDeleteResultUser = response.data;
+                } else {
+                    $scope.searchDeleteResultUser = null;
+                    $scope.responseObj = tempResponse(false, htmlContentConstants.user_not_found);
+                }
+            },
+            function failure(error) {
+                $scope.searchDeleteResultUser = null;
+                $scope.responseObj = tempFailureResponse;
+                console.log("User => Delete Function, Search User service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+        $scope.deleteUserInput = {};
+    };
+    $scope.userDelete = function () {
+        $scope.responseObj = null;
+        UserFactory.delete($scope.searchDeleteResultUser).then(
+            function success(response) {
+                $scope.responseObj = response.data;
+                $scope.searchDeleteResultUser = null;
+            },
+            function failure(error) {
+                $scope.searchDeleteResultUser = null;
+                $scope.responseObj = tempFailureResponse;
+                console.log("User => Delete Function, Delete User service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+    };
+    // All Delete Related ends here.
 };
 
 //Dependecy Injection.

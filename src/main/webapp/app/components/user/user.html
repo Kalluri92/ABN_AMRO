@@ -70,11 +70,6 @@
                 <hr>
             </div>
 
-            <div ng-if="deleteFlag">
-                <h2 class="abn_color">Delete User</h2>
-                <hr>
-            </div>
-
             <div ng-if="updateFlag">
                 <h2 class="abn_color">Update User</h2>
                 <div class="row">
@@ -87,7 +82,6 @@
                     <div class="col-sm-3 col-md-2" style="margin-top: 10px"> 
                         <button type="button" ng-click="searchUser()" class="btn btn-info">Search</button>
                     </div>
-                    
                 </div>
                 <div style="margin: 10px;" ng-if="searchResultUser != null">
                     <div class="row">
@@ -127,6 +121,47 @@
                 </div>
             </div>
 
+            <div ng-if="deleteFlag">
+                <h2 class="abn_color">Delete User</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4 col-md-3">
+                        <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
+                            <i class="glyphicon glyphicon-search"></i>
+                            <input type="text" ng-model="deleteUserInput.userName" class="form-control" placeholder="Search by username"/>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-2" style="margin-top: 10px"> 
+                        <button type="button" ng-click="searchDeleteUser()" class="btn btn-info">Search</button>
+                    </div>
+                </div>
+                <div style="margin: 10px;" ng-if="searchDeleteResultUser != null">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h4 class="abn_color">User Information</h4>
+                            <ul class="list-group list_table">
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3 ">User Name</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.userName}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Account Id</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.accountId}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Role</div>
+                                    <div class="col-sm-9 bold" ng-class="{success_color:searchDeleteResultUser.role=='!ADMIM', danger_color:searchDeleteResultUser.role=='ADMIN'}">{{searchDeleteResultUser.role}}</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3"></div>
+                        <button type="button" ng-click="userDelete()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
 
             <div ng-if="responseObj != null" style="padding-top: 15px;" class="col-sm-7">
                 <div ng-if="responseObj.success == true" class="alert alert-success">

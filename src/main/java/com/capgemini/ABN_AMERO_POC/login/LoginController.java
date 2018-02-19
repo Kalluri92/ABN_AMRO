@@ -3,7 +3,6 @@ package com.capgemini.ABN_AMERO_POC.login;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +27,7 @@ public class LoginController {
 		return loginService.addLogin(login);
 	}
 
-	@DeleteMapping("/delete")
+	@PostMapping("/delete")
 	public Response deleteLogin(@RequestBody Login login) {
 		return loginService.deleteLogin(login);
 	}
