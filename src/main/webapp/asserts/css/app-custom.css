@@ -32,6 +32,9 @@
 .bold {
     font-weight: 450;
 }
+.strong {
+    font-weight: 700;
+}
 
 .success {
     color: #3c763d;
@@ -52,7 +55,9 @@
 .white_color {
     color:rgb(255, 255, 255);
 }
-
+.warn_color {
+    color: #ffbb33;
+}
 /* enable absolute positioning */
 .inner-addon { 
     position: relative; 

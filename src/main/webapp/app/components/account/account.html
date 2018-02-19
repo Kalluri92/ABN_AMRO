@@ -135,29 +135,42 @@
                     <div class="col-sm-4 col-md-3">
                         <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
                             <i class="glyphicon glyphicon-search"></i>
-                            <input type="text" ng-model="deleteUserInput.userName" class="form-control" placeholder="Search by username" />
+                            <input type="number" ng-model="deleteAccountInput.accountId" class="form-control" placeholder="Search by Account Number.."
+                            />
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-2" style="margin-top: 10px">
-                        <button type="button" ng-click="searchDeleteUser()" class="btn btn-info">Search</button>
+                        <button type="button" ng-click="searchDeleteAccount()" class="btn btn-info">Search</button>
                     </div>
                 </div>
-                <div style="margin: 10px;" ng-if="searchDeleteResultUser != null">
+                <div style="margin: 10px;" ng-if="searchDeleteAccountResult != null">
                     <div class="row">
                         <div class="col-sm-7">
-                            <h4 class="abn_color">User Information</h4>
+                            <h4 class="abn_color">Account Preview</h4>
                             <ul class="list-group list_table">
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3 ">User Name</div>
-                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.userName}}</div>
+                                    <div class="col-sm-3 ">Account Id</div>
+                                    <div class="col-sm-9 bold info_color">{{searchDeleteAccountResult.accountId}}</div>
                                 </li>
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3">Account Id</div>
-                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.accountId}}</div>
+                                    <div class="col-sm-3">Balance</div>
+                                    <div class="col-sm-9 bold danger_color">{{searchDeleteAccountResult.balance}}</div>
                                 </li>
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3">Role</div>
-                                    <div class="col-sm-9 bold" ng-class="{success_color:searchDeleteResultUser.role=='!ADMIM', danger_color:searchDeleteResultUser.role=='ADMIN'}">{{searchDeleteResultUser.role}}</div>
+                                    <div class="col-sm-3">Account Type</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteAccountResult.accountType}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Open Date</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteAccountResult.openDate}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Status</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteAccountResult.status}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Customer Id</div>
+                                    <div class="col-sm-9 bold info_color">{{searchDeleteAccountResult.customerId}}</div>
                                 </li>
                             </ul>
                         </div>
@@ -165,7 +178,7 @@
 
                     <div class="row">
                         <div class="col-sm-3 col-md-3"></div>
-                        <button type="button" ng-click="userDelete()" class="btn btn-danger">Delete</button>
+                        <button type="button" ng-click="accountDelete()" class="btn btn-danger">Delete Account</button>
                     </div>
                 </div>
             </div>
@@ -188,6 +201,7 @@
                     <div style="margin: 10px;">
                         <div class="row">
                             <div class="col-sm-7">
+                                <h4 class="abn_color">Existing Account Information</h4>
                                 <ul class="list-group list_table">
                                     <li class="list-group-item row">
                                         <div class="col-sm-4 col-md-4">Account Type</div>

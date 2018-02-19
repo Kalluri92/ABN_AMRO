@@ -125,6 +125,40 @@ var customerController = function ($rootScope, $scope, CustomerFactory) {
     $scope.delete = function () {
         resetAllVews();
         $scope.deleteFlag = true;
+        $scope.deleteCustomerInput = {};
+        $scope.searchDeleteCustomerResult = null;
+    };
+    $scope.searchDeleteCustomer = function () {
+        $scope.responseObj = null;
+        CustomerFactory.get($scope.deleteCustomerInput.customerId).then(
+            function success(response) {
+                if (response.data != null && response.data != "") {
+                    $scope.searchDeleteCustomerResult = response.data;
+                } else {
+                    $scope.searchDeleteCustomerResult = null;
+                    $scope.responseObj = tempResponse(false, htmlContentConstants.customer_not_fond);
+                }
+            },
+            function failure(error) {
+                $scope.searchDeleteCustomerResult = null;
+                $scope.responseObj = tempFailureResponse;
+                console.log("Customer => Search Customer service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+        $scope.deleteCustomerInput = {};
+    };
+    $scope.customerDelete = function () {
+        $scope.responseObj = null;
+        CustomerFactory.delete($scope.searchDeleteCustomerResult.customerId).then(
+            function success(response) {
+                $scope.responseObj = response.data;
+            },
+            function failure(error) {
+                $scope.responseObj = tempFailureResponse;
+                console.log("Customer => delete Customer service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+        $scope.searchDeleteCustomerResult = null;
     };
     // End of Delete Customer.
 

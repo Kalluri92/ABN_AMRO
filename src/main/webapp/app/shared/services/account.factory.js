@@ -16,7 +16,7 @@ var accountFactory = function ($http) {
             return $http.post(appApiConstants.account_update, obj);
         },
         delete: function (accountId) {
-            return $http.delete(appApiConstants.account_delete + accountId);
+            return $http.post(appApiConstants.account_delete + accountId);
         }
     }
 };

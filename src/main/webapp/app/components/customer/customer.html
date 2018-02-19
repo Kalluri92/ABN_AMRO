@@ -55,7 +55,7 @@
                                     </thead>
                                     <tbody>
                                         <tr class="row" style="width: 100%; margin-left: 0px; margin-right: 0px" ng-repeat="customer in allCustomers| orderBy:sortKey:sortOrder | filter:search">
-                                            <td class="col-sm-2 ">{{customer.customerId}}</td>
+                                            <td class="col-sm-2 info_color">{{customer.customerId}}</td>
                                             <td class="col-sm-2">{{customer.name}}</td>
                                             <td class="col-sm-2 ">{{customer.phoneNumber}}</td>
                                             <td class="col-sm-3 ">{{customer.emailId}}</td>
@@ -118,35 +118,44 @@
             </div>
 
             <div ng-if="deleteFlag">
-                <h2 class="abn_color">Delete User</h2>
+                <h2 class="abn_color">Delete Customer</h2>
                 <hr>
                 <div class="row">
                     <div class="col-sm-4 col-md-3">
                         <div class="inner-addon left-addon" style="margin-top: 10px; margin-bottom: 10px">
                             <i class="glyphicon glyphicon-search"></i>
-                            <input type="text" ng-model="deleteUserInput.userName" class="form-control" placeholder="Search by username" />
+                            <input type="number" ng-model="deleteCustomerInput.customerId" class="form-control" placeholder="Search by Customer Number.."
+                            />
                         </div>
                     </div>
                     <div class="col-sm-3 col-md-2" style="margin-top: 10px">
-                        <button type="button" ng-click="searchDeleteUser()" class="btn btn-info">Search</button>
+                        <button type="button" ng-click="searchDeleteCustomer()" class="btn btn-info">Search</button>
                     </div>
                 </div>
-                <div style="margin: 10px;" ng-if="searchDeleteResultUser != null">
+                <div style="margin: 10px;" ng-if="searchDeleteCustomerResult != null">
                     <div class="row">
                         <div class="col-sm-7">
-                            <h4 class="abn_color">User Information</h4>
+                            <h4 class="abn_color">Customer Preview</h4>
                             <ul class="list-group list_table">
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3 ">User Name</div>
-                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.userName}}</div>
+                                    <div class="col-sm-3 ">Customer Id</div>
+                                    <div class="col-sm-9 bold info_color">{{searchDeleteCustomerResult.customerId}}</div>
                                 </li>
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3">Account Id</div>
-                                    <div class="col-sm-9 bold">{{searchDeleteResultUser.accountId}}</div>
+                                    <div class="col-sm-3">Name</div>
+                                    <div class="col-sm-9 bold danger_color">{{searchDeleteCustomerResult.name}}</div>
                                 </li>
                                 <li class="list-group-item row">
-                                    <div class="col-sm-3">Role</div>
-                                    <div class="col-sm-9 bold" ng-class="{success_color:searchDeleteResultUser.role=='!ADMIM', danger_color:searchDeleteResultUser.role=='ADMIN'}">{{searchDeleteResultUser.role}}</div>
+                                    <div class="col-sm-3">Phone Number</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteCustomerResult.phoneNumber}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Email Id</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteCustomerResult.emailId}}</div>
+                                </li>
+                                <li class="list-group-item row">
+                                    <div class="col-sm-3">Address</div>
+                                    <div class="col-sm-9 bold">{{searchDeleteCustomerResult.address}}</div>
                                 </li>
                             </ul>
                         </div>
@@ -154,7 +163,7 @@
 
                     <div class="row">
                         <div class="col-sm-3 col-md-3"></div>
-                        <button type="button" ng-click="userDelete()" class="btn btn-danger">Delete</button>
+                        <button type="button" ng-click="customerDelete()" class="btn btn-danger">Delete Customer</button>
                     </div>
                 </div>
             </div>
@@ -176,6 +185,7 @@
                 <div style="margin: 10px;" ng-if="updateCustomerSearchResult!=null">
                     <div class="row">
                         <div class="col-sm-7">
+                            <h4 class="abn_color">Customer Existing Information</h4>
                             <ul class="list-group list_table">
                                 <li class="list-group-item row">
                                     <div class="col-sm-4 col-md-4">Name</div>

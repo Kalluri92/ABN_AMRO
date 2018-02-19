@@ -16,7 +16,7 @@ var customerFactory = function ($http) {
             return $http.post(appApiConstants.customer_update, obj);
         },
         delete: function (customerId) {
-            return $http.delete(appApiConstants.customer_delete + customerId);
+            return $http.post(appApiConstants.customer_delete + customerId);
         }
     }
 };

@@ -51,22 +51,22 @@ var accountController = function ($rootScope, $scope, AccountFactory) {
         $scope.addAccountInput.status = "Opened";
     };
     $scope.addAccount = function () {
-        if($scope.addAccountInput.balance != null && !($scope.addAccountInput.balance < 0)){
-            if($scope.addAccountInput.customerId != null && $scope.addAccountInput.customerId.toString().length >3){
+        if ($scope.addAccountInput.balance != null && !($scope.addAccountInput.balance < 0)) {
+            if ($scope.addAccountInput.customerId != null && $scope.addAccountInput.customerId.toString().length > 3) {
                 AccountFactory.add($scope.addAccountInput).then(
                     function success(response) {
                         $scope.responseObj = response.data;
                     },
                     function failue(error) {
-                        console.log("Account => Add Account Service Call failed , Error: "+ JSON.stringify(error));
+                        console.log("Account => Add Account Service Call failed , Error: " + JSON.stringify(error));
                         $scope.responseObj = tempFailureResponse;
                     }
                 );
             } else {
-                $scope.responseObj = tempResponse(false,htmlContentConstants.account_enter_valid_customer_id);
+                $scope.responseObj = tempResponse(false, htmlContentConstants.account_enter_valid_customer_id);
             }
         } else {
-            $scope.responseObj = tempResponse(false,htmlContentConstants.account_balance_not_valid);
+            $scope.responseObj = tempResponse(false, htmlContentConstants.account_balance_not_valid);
         }
         $scope.addAccountInput = {};
         $scope.addAccountInput.accountType = "Savings";
@@ -101,9 +101,9 @@ var accountController = function ($rootScope, $scope, AccountFactory) {
         );
         $scope.updateCustomerInput = {};
     };
-    $scope.updateAccount = function() {
+    $scope.updateAccount = function () {
         for (var key in $scope.updateAccountSearchResult) {
-            if($scope.updateAccountInput[key] == null || $scope.updateAccountSearchResult[key] =="") {
+            if ($scope.updateAccountInput[key] == null || $scope.updateAccountSearchResult[key] == "") {
                 $scope.updateAccountInput[key] = $scope.updateAccountSearchResult[key];
             }
         };
@@ -125,7 +125,7 @@ var accountController = function ($rootScope, $scope, AccountFactory) {
         );
         $scope.updateAccountInput = {};
     };
-    
+
     //End of Update Function.
 
 
@@ -133,6 +133,39 @@ var accountController = function ($rootScope, $scope, AccountFactory) {
     $scope.delete = function () {
         resetAllVews();
         $scope.deleteFlag = true;
+        $scope.deleteAccountInput = {};
+    };
+    $scope.searchDeleteAccount = function () {
+        $scope.responseObj = null;
+        AccountFactory.get($scope.deleteAccountInput.accountId).then(
+            function success(response) {
+                if (response.data != null && response.data != "") {
+                    $scope.searchDeleteAccountResult = response.data;
+                } else {
+                    $scope.searchDeleteAccountResult = null;
+                    $scope.responseObj = tempResponse(false, htmlContentConstants.account_not_found);
+                }
+            },
+            function failure(error) {
+                $scope.searchDeleteAccountResult = null;
+                $scope.responseObj = tempFailureResponse;
+                console.log("Account => Search Account service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+        $scope.deleteAccountInput = {};
+    };
+    $scope.accountDelete = function () {
+        $scope.responseObj = null;
+        AccountFactory.delete($scope.searchDeleteAccountResult.accountId).then(
+            function success(response) {
+                $scope.responseObj = response.data;
+            },
+            function failure(error) {
+                $scope.responseObj = tempFailureResponse;
+                console.log("Account => delete Account service call failed, Error:" + JSON.stringify(error));
+            }
+        );
+        $scope.searchDeleteAccountResult = null;
     };
     //End of Delete Function.
 };
