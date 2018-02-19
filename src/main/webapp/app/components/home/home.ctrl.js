@@ -9,6 +9,7 @@ var homeController = function ($rootScope, $scope, UserFactory) {
     $scope.responseObj = null;
     $scope.changePassword = function () {
         $scope.changePasswordFlag = true;
+        $scope.loading = true;
     };
 
     $scope.updatePassword = function () {

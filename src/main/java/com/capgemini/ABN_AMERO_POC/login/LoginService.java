@@ -21,6 +21,9 @@ public class LoginService {
 
 	@Autowired
 	Environment environment;
+	
+	@Autowired
+	LoginRepository loginRepository;
 
 	public LoginService() {
 
@@ -90,7 +93,8 @@ public class LoginService {
 	}
 
 	public Login verifyPassword(String userName, String password) {
-		Login temp = loginDao.getLoginByUserName(userName);
+		//Login temp = loginDao.getLoginByUserName(userName);
+		Login temp = loginRepository.findOne(userName);
 		if (temp != null) {
 			if (temp.getPassword().equals(password)) {
 				return temp;

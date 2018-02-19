@@ -12,9 +12,6 @@ import com.capgemini.ABN_AMERO_POC.shared.Response;
 
 @Service
 public class CustomerService {
-
-	@Autowired
-	CustomerDao customerDao;
 	
 	@Autowired
 	AccountService accountService;
@@ -23,42 +20,45 @@ public class CustomerService {
 	Environment environment;
 	
 	@Autowired
-	CustomerJpaDao customerJpaDao;
+	CustomerRepository customerRepository;
+	
 	
 	public List<Customer> getAllCustomer() {
-		if(environment.getProperty("App_Data_Source").equals("JPA"))
-			return customerJpaDao.getAllCustomer();
-		return customerDao.getAllCustomers();
+		return customerRepository.findAll();
 	}
 
 	public Response addCustomer(Customer customer) {
-		if(environment.getProperty("App_Data_Source").equals("JPA"))
-			return customerJpaDao.addCustomer(customer);
-		return customerDao.addCustomer(customer);
+		Customer savedCustomer = customerRepository.save(customer);
+		if(savedCustomer != null) {
+			return new Response(true,environment.getProperty("Customer_AddCustomerSuccess"), savedCustomer);
+		}
+		return new Response(false,environment.getProperty("Customer_AddCustomerFailed"),null);
 	}
 
 	public Customer getCustomer(Integer id) {
-		if(environment.getProperty("App_Data_Source").equals("JPA"))
-			return customerJpaDao.getCustomer(id);
-		return customerDao.getCustomer(id);
+		return customerRepository.findOne(id);
 	}
 
 	public Response deleteCustomer(Integer id) {
-		List<Account> accountsListOfCustomer = accountService.getAccountsByCustomerId(id);
 		Response response = new Response(false,environment.getProperty("Customer_CannotDeleteCustomerLinkedToAccount"),null);
-		if(accountsListOfCustomer.isEmpty()) {
-			if(environment.getProperty("App_Data_Source").equals("JPA")) {
-				return customerJpaDao.deleteCustomer(id);
-			}
-			return customerDao.deleteCustomer(id);
+		List<Account> accoutsForThisCustomer= accountService.getAccountsByCustomerId(id);
+		if(accoutsForThisCustomer.isEmpty()) {
+			customerRepository.delete(id);
+			response = new Response(true,environment.getProperty("Customer_CustomerDeleteSuccess"),null);
 		}
 		return response;
 	}
 
 	public Response updateCustomer(Customer customer) {
-		if(environment.getProperty("App_Data_Source").equals("JPA"))
-			return customerJpaDao.updateCustomer(customer);
-		return customerDao.updateCustomer(customer);
+		if(customerRepository.findOne(customer.getCustomerId()) != null) {
+			Customer updatedCustomer = customerRepository.save(customer);
+			if(updatedCustomer != null) {
+				return new Response(true,environment.getProperty("Customer_CustomerUpdateSuccess"),updatedCustomer);
+			} else {
+				return new Response(false,environment.getProperty("Customer_CustomerUpdateFailed"),null);
+			}
+		}
+		return new Response(false, environment.getProperty("Customer_CustomerNotFound"),null);
 	}
 	
 }
