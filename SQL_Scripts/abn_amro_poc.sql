@@ -23,7 +23,8 @@ DROP TABLE IF EXISTS Accounts;
 CREATE TABLE  Accounts(
     account_id  INT NOT NULL AUTO_INCREMENT,
     balance  DOUBLE  NOT NULL,
-    open_date DATE,
+    account_type VARCHAR(20),
+    open_date VARCHAR(15),
     status VARCHAR(15),
     customer_id INT ,
     

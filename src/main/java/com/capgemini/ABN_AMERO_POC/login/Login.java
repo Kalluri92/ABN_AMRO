@@ -1,10 +1,20 @@
 package com.capgemini.ABN_AMERO_POC.login;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Users")
 public class Login {
 
+	@Column(name="user_name")
 	private String userName;
+	@Column(name="password")
 	private String password;
+	@Column(name="account_id")
 	private Integer accountId;
+	@Column(name="role")
 	private String role;
 	
 	public Login() {

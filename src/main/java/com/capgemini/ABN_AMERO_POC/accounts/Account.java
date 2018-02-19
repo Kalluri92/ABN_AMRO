@@ -3,23 +3,40 @@
  */
 package com.capgemini.ABN_AMERO_POC.accounts;
 
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author jakallur
  *
  */
-@Component
-public class Account {
+@Entity
+@Table(name="Accounts")
+public class Account implements Serializable{
 
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 
 	 */
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="account_id")
 	private Integer accountId;
+	@Column(name="balance")
 	private double balance;
+	@Column(name="account_type")
 	private String accountType;
+	@Column(name="open_date")
 	private String openDate;
+	@Column(name="status")
 	private String status;
+	@Column(name="customer_id")
 	private Integer customerId;
 
 	public Account() {

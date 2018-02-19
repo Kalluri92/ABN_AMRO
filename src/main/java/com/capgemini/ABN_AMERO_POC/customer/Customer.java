@@ -1,14 +1,27 @@
 package com.capgemini.ABN_AMERO_POC.customer;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Component
+@Entity
+@Table(name="Customers")
 public class Customer {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="customer_id")
 	private Integer customerId;
+	@Column(name="name")
 	private String name;
+	@Column(name="address")
 	private String address;
+	@Column(name="email_id")
 	private String emailId;
+	@Column(name="phone_number")
 	private String phoneNumber;
 
 	@Override
