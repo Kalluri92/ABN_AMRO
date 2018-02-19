@@ -19,11 +19,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Accounts")
 public class Account implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	/**
-	 * 
-	 */
+	
+	private static final long serialVersionUID = -4701725947616659308L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="account_id")

@@ -1,5 +1,7 @@
 package com.capgemini.ABN_AMERO_POC.customer;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Customers")
-public class Customer {
+public class Customer implements Serializable{
 
+	private static final long serialVersionUID = -7179411173695602086L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="customer_id")

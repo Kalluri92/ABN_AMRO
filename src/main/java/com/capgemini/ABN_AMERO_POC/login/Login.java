@@ -1,13 +1,21 @@
 package com.capgemini.ABN_AMERO_POC.login;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Users")
-public class Login {
+public class Login implements Serializable{
 
+	private static final long serialVersionUID = -3425421115880343328L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="user_name")
 	private String userName;
 	@Column(name="password")

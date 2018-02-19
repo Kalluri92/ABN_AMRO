@@ -7,19 +7,26 @@ import java.io.FileWriter;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.ABN_AMERO_POC.shared.Response;
 import com.google.gson.Gson;
 
+@Transactional
 @Repository
 public class CustomerDao {
 
 	@Autowired
 	Environment environment;
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	private JsonCustomer jsonCustomer;
 	private Gson gson;
@@ -47,6 +54,9 @@ public class CustomerDao {
 		}
 	}
 
+	public void getSomeThingFromCloudDb() {
+		System.out.println(entityManager.find(Customer.class, 1002));
+	}
 	public void updateFile() {
 		try {
 			this.fw = new FileWriter(environment.getProperty("Customer_JsonFileName"));
@@ -68,6 +78,7 @@ public class CustomerDao {
 	}
 
 	public List<Customer> getAllCustomers() {
+		getSomeThingFromCloudDb();
 		updateCustomersList();
 		return this.jsonCustomer.getCustomersList();
 	}
