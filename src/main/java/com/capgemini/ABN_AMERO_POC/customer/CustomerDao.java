@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -24,15 +22,12 @@ public class CustomerDao {
 
 	@Autowired
 	Environment environment;
-	
-	@PersistenceContext
-	private EntityManager entityManager;
 
 	private JsonCustomer jsonCustomer;
 	private Gson gson;
 	private BufferedReader br;
 	private FileWriter fw;
-
+	
 	public CustomerDao() {
 
 	}
@@ -54,9 +49,6 @@ public class CustomerDao {
 		}
 	}
 
-	public void getSomeThingFromCloudDb() {
-		System.out.println(entityManager.find(Customer.class, 1002));
-	}
 	public void updateFile() {
 		try {
 			this.fw = new FileWriter(environment.getProperty("Customer_JsonFileName"));
@@ -78,9 +70,9 @@ public class CustomerDao {
 	}
 
 	public List<Customer> getAllCustomers() {
-		getSomeThingFromCloudDb();
 		updateCustomersList();
 		return this.jsonCustomer.getCustomersList();
+		
 	}
 
 	public Response addCustomer(Customer customer) {
