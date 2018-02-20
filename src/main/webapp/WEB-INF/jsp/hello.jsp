@@ -30,13 +30,16 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav" ng-if="admin">
 							<li>
-								<a href="#!account">Accounts</a>
-							</li>
-							<li>
 								<a href="#!customer">Customers</a>
 							</li>
 							<li>
+								<a href="#!account">Accounts</a>
+							</li>
+							<li>
 								<a href="#!user">User Mappings</a>
+							</li>
+							<li>
+								<a href="#!transactions">Transactions</a>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav" ng-if="!admin">
@@ -45,6 +48,9 @@
 							</li>
 							<li>
 								<a href="#!myAccounts">My Accounts</a>
+							</li>
+							<li>
+								<a href="#!transfers">Transfers</a>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
@@ -101,6 +107,7 @@
 <script type="text/javascript" src="app/shared/services/user.factory.js"></script>
 <script type="text/javascript" src="app/shared/services/account.factory.js"></script>
 <script type="text/javascript" src="app/shared/services/customer.factory.js"></script>
+<script type="text/javascript" src="app/shared/services/transactions.factory.js"></script>
 
 <!-- Application Modules & Components-->
 <script type="text/javascript" src="app/components/home/home.module.js"></script>
@@ -120,5 +127,8 @@
 
 <script type="text/javascript" src="app/components/customer/customer.module.js"></script>
 <script type="text/javascript" src="app/components/customer/customer.ctrl.js"></script>
+
+<script type="text/javascript" src="app/components/transactions/transactions.module.js"></script>
+<script type="text/javascript" src="app/components/transactions/transactions.ctrl.js"></script>
 
 </html>

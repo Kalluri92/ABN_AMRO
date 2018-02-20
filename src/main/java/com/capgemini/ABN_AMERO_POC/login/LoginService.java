@@ -39,9 +39,8 @@ public class LoginService {
 
 	public Response deleteLogin(Login login) {
 		Response response;
-
 		Login temp = loginDao.getLoginByUserName(login.getUserName());
-		if (temp.getAccountId() != null) {
+		if (temp.getAccountId() != null && temp.getUserName() != "admin") {
 			response = new Response(false, environment.getProperty("Login_DeleteNotPossibleWhenAccountIsInMapped"),
 					null);
 		} else {

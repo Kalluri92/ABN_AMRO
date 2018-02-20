@@ -24,6 +24,14 @@ var myConfig = function ($routeProvider) {
         .when('/myDetails', {
             templateUrl: 'app/components/myDetails/myDetails.html',
             controller: 'MyDetailsController'
+        })
+        .when('/transfers', {
+            templateUrl: 'app/components/transactions/transfers.html',
+            controller: 'TransfersController'
+        })
+        .when('/transactions', {
+            templateUrl: 'app/components/transactions/transactions.html',
+            controller: 'TransactionsController'
         });
 };
 

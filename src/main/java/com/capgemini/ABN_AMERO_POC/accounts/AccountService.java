@@ -3,6 +3,8 @@
  */
 package com.capgemini.ABN_AMERO_POC.accounts;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,7 @@ public class AccountService {
 	public Response addAccount(Account account) {
 		Response response = new Response(false,environment.getProperty("Account_AddAccountFailedCustomerIdDoesNotExist"),null);
 		if(customerService.getCustomer(account.getCustomerId()) != null){	
+			account.setOpenDate(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 			return accountDao.addAccount(account);
 		}
 		return response;

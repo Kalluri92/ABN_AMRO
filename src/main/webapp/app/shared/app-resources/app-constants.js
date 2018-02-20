@@ -20,7 +20,14 @@ var appApiConstants = {
 	user_get_all: base_url + "/rest/user/getAll",
 	user_update: base_url + "/rest/user/update",
 	user_delete: base_url + "/rest/user/delete",
-	user_change_password: base_url + "/rest/user/changePassword"
+	user_change_password: base_url + "/rest/user/changePassword",
+
+
+	transactions_add: base_url + "/rest/transfer/add",
+	transactions_get_all: base_url + "/rest/transfer/getAll",
+	transactions_get_from_account: base_url + "/rest/transfer/getFromAccount/",
+	transactions_get_to_account: base_url + "/rest/transfer/getToAccount/",
+
 };
 
 var htmlContentConstants = {
@@ -42,12 +49,13 @@ var htmlContentConstants = {
 	user_add_enter_valid_userName: "Please enter valid Username !",
 	user_add_enter_valid_accountId: "Please enter valid Account Number !",
 	user_add_enter_valid_password: "Please enter valid Password !",
-	account_balance_not_valid:" Enter valid opening balance amount (>=0) !",
+	account_balance_not_valid: " Enter valid opening balance amount (>=0) !",
 	account_enter_valid_customer_id: "Enter valid Customer Id !",
 	customer_enter_all_filed_valid_data: "Please enter all fields with valid data !",
 	customer_not_fond: "Customer Not found with given Id !",
 	customer_update_failed: "Customer Update failed with no response !",
 	account_not_found: "Account Not found with given id !",
-	account_update_failed: "Account update failed with no response !"
-	
+	account_update_failed: "Account update failed with no response !",
+	invalid_transfer_input: "Please enter valid account number, amount to transfer <= available balance !"
+
 };

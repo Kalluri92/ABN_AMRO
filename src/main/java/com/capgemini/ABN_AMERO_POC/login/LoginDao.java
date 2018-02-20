@@ -115,13 +115,14 @@ public class LoginDao {
 		updateLoginsList();
 		Response response = new Response(false, environment.getProperty("Login_LoginUpdateFailed"), null);
 		for (Login loginObj : this.jsonLogin.getLoginsList()) {
-			if (loginObj.getUserName().equals(login.getUserName())) {
+			if (loginObj.getUserName()!= null && loginObj.getUserName().equals(login.getUserName())) {
 				List<Login> temp = this.jsonLogin.getLoginsList();
 				temp.remove(loginObj);
 				if(! login.getPassword().trim().equals("")) {
 					loginObj.setPassword(login.getPassword());
 				}
 				loginObj.setAccountId(login.getAccountId());
+				loginObj.setRole(login.getRole());
 				temp.add(loginObj);
 				this.jsonLogin.setLoginsList(temp);
 				updateFile();
@@ -136,7 +137,7 @@ public class LoginDao {
 	public Login getLoginByAccountId(Integer accountId) {
 		updateLoginsList();
 		for (Login login : this.jsonLogin.getLoginsList()) {
-			if (login.getAccountId().equals(accountId)) {
+			if (login.getAccountId()!= null && login.getAccountId().equals(accountId)) {
 				return login;
 			}
 		}
