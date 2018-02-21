@@ -20,7 +20,7 @@ import com.capgemini.ABN_AMERO_POC.shared.Response;
  *
  */
 
-@RestController()
+@RestController
 @RequestMapping(value = "/rest/account")
 public class AccountController {
 
