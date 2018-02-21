@@ -4,8 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.capgemini</groupId>
-	<artifactId>ABN_AMERO_POC</artifactId>
-	<version>1</version>
+	<artifactId>ABN</artifactId>
 	<packaging>war</packaging>
 
 	<name>ABN_AMERO_POC</name>
