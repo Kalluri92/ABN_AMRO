@@ -22,6 +22,7 @@ public class AccountDao {
 	@Autowired
 	private Environment environment;
 
+	
 	private JsonAccount jsonAccount;
 	private Gson gson;
 	private BufferedReader br;

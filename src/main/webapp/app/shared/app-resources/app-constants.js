@@ -1,4 +1,4 @@
-var base_url = "http://localhost:8080";
+var base_url = "" + _contextPath;
 var appApiConstants = {
 
 	current_user: base_url + "/session/getCurrentUser",

@@ -21,7 +21,6 @@
 	<title>ABN AMRO</title>
 </head>
 
-<!-- <body style="background-color: #54646c"> -->
 <body class="bg">
 	<div class="container">
 		<div class="col-md-4 col-sm-3"></div>
@@ -29,7 +28,7 @@
 			<div class="jumbotron" style="margin-top: 100px">
 				<div class="row">
 					<h3 align="center" style="color: #00958F; margin-top: 0px;">ABN AMRO</h3>
-					<form action="/login" method="post">
+					<form action="${pageContext.request.contextPath}/login" method="post">
 						<div class="form-group inner-addon left-addon">
 							<i class="glyphicon glyphicon-user"></i>
 							<input type="text" name="username" class="form-control" placeholder="username">

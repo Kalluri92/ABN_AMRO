@@ -5,7 +5,7 @@
 
 	<groupId>com.capgemini</groupId>
 	<artifactId>ABN_AMERO_POC</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<packaging>war</packaging>
 
 	<name>ABN_AMERO_POC</name>

@@ -13,7 +13,9 @@
 
 	<title>ABN AMRO</title>
 </head>
-
+<script type="text/javascript">
+    var _contextPath = "${pageContext.request.contextPath}";
+</script>
 <body>
 	<div ng-app="MyApp">
 		<div ng-controller="MyAppController">
@@ -59,7 +61,7 @@
 									<strong class="white_color">{{ userName}}</strong> !</a>
 							</li>
 							<li>
-								<form id="signOutForm" action="/logout" method="post" class="navbar-form navbar-left" role="search">
+								<form id="signOutForm" action="${pageContext.request.contextPath}/logout" method="post" class="navbar-form navbar-left" role="search">
 									<button type="submit" class="btn btn-link">Sign Out</button>
 									<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 								</form>

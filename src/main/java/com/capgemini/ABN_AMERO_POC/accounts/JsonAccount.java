@@ -8,6 +8,7 @@ public class JsonAccount {
 	private List<Account> accountsList;
 	private Integer accountSequenceNumber;
 
+
 	public Integer getAccountSequenceNumber() {
 		return accountSequenceNumber;
 	}
